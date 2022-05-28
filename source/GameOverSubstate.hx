@@ -57,7 +57,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		if (PlayState.SONG.song == 'bopeebo')
 		{
 			chara = new FlxSprite();
-			chara.frames = Paths.getSparrowAtlas('chara');
+			chara.frames = Paths.getSparrowAtlas('charaBG');
 			chara.cameras = [coolcamera];
 			add(chara);
 			bf.alpha = 0;
