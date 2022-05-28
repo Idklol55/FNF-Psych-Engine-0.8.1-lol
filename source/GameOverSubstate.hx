@@ -13,6 +13,7 @@ import flixel.tweens.FlxTween;
 class GameOverSubstate extends MusicBeatSubstate
 {
 	public var boyfriend:Boyfriend;
+	var charaBG:FlxSprite;
 	var camFollow:FlxPoint;
 	var camFollowPos:FlxObject;
 	var updateCamera:Bool = false;
@@ -56,11 +57,11 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		if (PlayState.SONG.song == 'bopeebo')
 		{
-			chara = new FlxSprite();
-			chara.frames = Paths.getSparrowAtlas('charaBG');
-			chara.cameras = [coolcamera];
-			add(chara);
-			bf.alpha = 0;
+			charaBG = new FlxSprite();
+			charaBG.frames = Paths.getSparrowAtlas('charaBG');
+			charaBG.cameras = [coolcamera];
+			add(charaBG);
+			boyfriend.alpha = 0;
 
 			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
