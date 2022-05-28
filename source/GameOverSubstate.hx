@@ -54,6 +54,20 @@ class GameOverSubstate extends MusicBeatSubstate
 		boyfriend.y += boyfriend.positionArray[1];
 		add(boyfriend);
 
+		if (PlayState.SONG.song == 'bopeebo')
+		{
+			chara = new FlxSprite();
+			chara.frames = Paths.getSparrowAtlas('chara');
+			chara.cameras = [coolcamera];
+			add(chara);
+			bf.alpha = 0;
+
+			new FlxTimer().start(2, function(tmr:FlxTimer)
+			{
+					FlxG.camera.fade(FlxColor.RED, 2.5);
+			});
+		}
+
 		camFollow = new FlxPoint(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
 
 		FlxG.sound.play(Paths.sound(deathSoundName));
