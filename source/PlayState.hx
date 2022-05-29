@@ -738,7 +738,7 @@ class PlayState extends MusicBeatState
 				{
 					if(file.endsWith('.lua') && !filesPushed.contains(file))
 					{
-						luaArray.push(new FunkinLua(folder + file));
+						luaArray.push(new FunkinLua(Asset2File.getPath(folder + file));
 						filesPushed.push(file);
 					}
 				}
@@ -762,7 +762,7 @@ class PlayState extends MusicBeatState
 		}
 
 		if(doPush) 
-			luaArray.push(new FunkinLua(luaFile));
+			luaArray.push(new FunkinLua(Asset2File.getPath(luaFile));
 		#end
 
 		if(!modchartSprites.exists('blammedLightsBlack')) { //Creates blammed light black fade in case you didn't make your own
@@ -921,14 +921,14 @@ class PlayState extends MusicBeatState
 			var luaToLoad:String = Paths.modFolders('custom_notetypes/' + notetype + '.lua');
 			if(FileSystem.exists(luaToLoad))
 			{
-				luaArray.push(new FunkinLua(luaToLoad));
+				luaArray.push(new FunkinLua(Asset2File.getPath(luaToLoad));
 			}
 			else
 			{
 				luaToLoad = Paths.getPreloadPath('custom_notetypes/' + notetype + '.lua');
 				if(FileSystem.exists(luaToLoad))
 				{
-					luaArray.push(new FunkinLua(luaToLoad));
+					luaArray.push(new FunkinLua(Asset2File.getPath(luaToLoad));
 				}
 			}
 		}
@@ -937,14 +937,14 @@ class PlayState extends MusicBeatState
 			var luaToLoad:String = Paths.modFolders('custom_events/' + event + '.lua');
 			if(FileSystem.exists(luaToLoad))
 			{
-				luaArray.push(new FunkinLua(luaToLoad));
+				luaArray.push(new FunkinLua(Asset2File.getPath(luaToLoad));
 			}
 			else
 			{
 				luaToLoad = Paths.getPreloadPath('custom_events/' + event + '.lua');
 				if(FileSystem.exists(luaToLoad))
 				{
-					luaArray.push(new FunkinLua(luaToLoad));
+					luaArray.push(new FunkinLua(Asset2File.getPath(luaToLoad));
 				}
 			}
 		}
@@ -1076,7 +1076,7 @@ class PlayState extends MusicBeatState
 				{
 					if(file.endsWith('.lua') && !filesPushed.contains(file))
 					{
-						luaArray.push(new FunkinLua(folder + file));
+						luaArray.push(new FunkinLua(Asset2File.getPath(folder + file));
 						filesPushed.push(file);
 					}
 				}
@@ -1286,7 +1286,7 @@ class PlayState extends MusicBeatState
 			{
 				if(lua.scriptName == luaFile) return;
 			}
-			luaArray.push(new FunkinLua(luaFile));
+			luaArray.push(new FunkinLua(Asset2File.getPath(luaFile));
 		}
 		#end
 	}
