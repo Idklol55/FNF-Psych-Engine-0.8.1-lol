@@ -55,7 +55,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		boyfriend.y += boyfriend.positionArray[1];
 		add(boyfriend);
 
-		if (PlayState.SONG.song == 'bopeebo')
+		/*if (PlayState.SONG.song == 'bopeebo')
 		{
 			charaBG = new FlxSprite();
 			charaBG.frames = Paths.getSparrowAtlas('charaBG');
@@ -63,11 +63,11 @@ class GameOverSubstate extends MusicBeatSubstate
 			add(charaBG);
 			boyfriend.alpha = 0;
 
-			/*new FlxTimer().start(2, function(tmr:FlxTimer)
+			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
 					FlxG.camera.fade(FlxColor.RED, 2.5);
-			});*/
-		}
+			});
+		}*/
 
 		camFollow = new FlxPoint(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
 
