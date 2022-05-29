@@ -66,8 +66,8 @@ class GameOverSubstate extends MusicBeatSubstate
 			/*new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
 					FlxG.camera.fade(FlxColor.RED, 2.5);
-			});
-		}*/
+			});*/
+		}
 
 		camFollow = new FlxPoint(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
 
