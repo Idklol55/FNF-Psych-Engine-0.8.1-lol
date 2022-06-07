@@ -172,7 +172,7 @@ class MainMenuState extends MusicBeatState
 		}
 		#end
 
-		function tweenCharacter():Void
+		function tweenCharacter(tween:FlxTween):Void
 		  {
 		    FlxTween.tween(characters, {x : 200, alpha: 0}, 0.2, {ease:FlxEase.cubeIn,
 		       onComplete: function(twn:FlxTween)
