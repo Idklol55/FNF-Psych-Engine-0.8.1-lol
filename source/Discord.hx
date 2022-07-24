@@ -1,4 +1,3 @@
-#if !mobile
 package;
 
 import Sys.sleep;
@@ -99,4 +98,3 @@ class DiscordClient
 	}
 	#end
 }
-#end
