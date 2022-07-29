@@ -321,18 +321,20 @@ class StoryMenuState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
 	}
-
-	var tweenDifficulty:FlxTween;
-	var lastImagePath:String;
+	
 	public var character:String;
-	function changeDifficulty(change:Int = 0):Void
-	{
-	  public function changeCharacter(?character:String = 'bf', diff:Int = 0){
+	public function changeCharacter(?character:String = 'bf', diff:Int = 0){
         if(character == null) character = '';
         if(character == 'bf' && diff == 1) character = 'chara';
         if(character == this.character) return;
 
         this.character = character;
+    }
+
+	var tweenDifficulty:FlxTween;
+	var lastImagePath:String;
+	function changeDifficulty(change:Int = 0):Void
+	{
 		curDifficulty += change;
 
 		if (curDifficulty < 0)
