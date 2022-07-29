@@ -189,17 +189,8 @@ class StoryMenuState extends MusicBeatState
 		super.closeSubState();
 	}
 	
-	//public var character:String;
-	
 	override function update(elapsed:Float)
 	{
-	  /*public function changeCharacter(?character:String = 'bf', diff:Int = 0){
-        if(character == null) character = '';
-        if(character == 'bf' && diff == 1) character = 'chara';
-        if(character == this.character) return;
-
-        this.character = character;*/
-
 		// scoreText.setFormat('VCR OSD Mono', 32);
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, CoolUtil.boundTo(elapsed * 30, 0, 1)));
 		if(Math.abs(intendedScore - lerpScore) < 10) lerpScore = intendedScore;
@@ -455,13 +446,6 @@ class StoryMenuState extends MusicBeatState
                 bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_stage'));
         }
 
-	public function changeCharacter(?character:String = 'bf', diff:Int = 0){
-        if(character == null) character = '';
-        if(character == 'bf' && diff == 1) character = 'chara';
-        if(character == this.character) return;
-
-        this.character = character;
-        
         var weekArray:Array<String> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).weekCharacters;
         for (i in 0...grpWeekCharacters.length) {
             grpWeekCharacters.members[i].changeCharacter(weekArray[i], curDifficulty);
