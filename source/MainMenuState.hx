@@ -98,7 +98,7 @@ class MainMenuState extends MusicBeatState
 		characters.animation.addByPrefix('freeplay', 'freeplay', 24);
 		characters.animation.addByPrefix('credits', 'credits', 24);
 		characters.animation.addByPrefix('options', 'options', 24);
-		characters.animation.play('story_mode');
+		//characters.animation.play('story_mode');
 		add(characters);
 		
 		splash = new FlxSprite(10);
@@ -300,6 +300,7 @@ class MainMenuState extends MusicBeatState
 	function changeItem(huh:Int = 0)
 	{
 		curSelected += huh;
+		tweenCharacter();
 
 		if (curSelected >= menuItems.length)
 			curSelected = 0;
@@ -319,7 +320,6 @@ class MainMenuState extends MusicBeatState
 		}
 		menuItems.forEach(function(spr:FlxSprite)
 		{
-			tweenCharacter();
 			spr.animation.play('idle');
 			spr.updateHitbox();
 
