@@ -94,6 +94,7 @@ class MainMenuState extends MusicBeatState
 		characters = new FlxSprite();
 		characters.frames = Paths.getSparrowAtlas('menuCharacters');
 		characters.antialiasing = ClientPrefs.globalAntialiasing;
+		characters.setGraphicSize(Std.int(magenta.width * 1.1));
 		characters.animation.addByPrefix('story_mode', 'story_mode', 24);
 		characters.animation.addByPrefix('freeplay', 'freeplay', 24);
 		characters.animation.addByPrefix('credits', 'credits', 24);
@@ -130,7 +131,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
 			//menuItem.screenCenter(X);
-			menuItem.x += 595;
+			menuItem.x += 590;
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
