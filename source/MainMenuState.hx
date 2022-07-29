@@ -94,7 +94,7 @@ class MainMenuState extends MusicBeatState
 		characters = new FlxSprite();
 		characters.frames = Paths.getSparrowAtlas('menuCharacters');
 		characters.antialiasing = ClientPrefs.globalAntialiasing;
-		characters.setGraphicSize(Std.int(magenta.width * 1.1));
+		characters.setGraphicSize(Std.int(magenta.width * 1));
 		characters.animation.addByPrefix('story_mode', 'story_mode', 24);
 		characters.animation.addByPrefix('freeplay', 'freeplay', 24);
 		characters.animation.addByPrefix('credits', 'credits', 24);
@@ -306,8 +306,8 @@ class MainMenuState extends MusicBeatState
 			curSelected = 0;
 		if (curSelected < 0)
 			curSelected = menuItems.length - 1;
-		tweenCharacter();
 		
+		tweenCharacter();
 		switch (curSelected) 
 		{
 			case 0:
