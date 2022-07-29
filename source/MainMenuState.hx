@@ -176,7 +176,6 @@ class MainMenuState extends MusicBeatState
 		addVirtualPad(UP_DOWN, A_B);
 		#end
 
-		tweenCharacter();
 		super.create();
 	}
 
@@ -320,6 +319,7 @@ class MainMenuState extends MusicBeatState
 		}
 		menuItems.forEach(function(spr:FlxSprite)
 		{
+			tweenCharacter();
 			spr.animation.play('idle');
 			spr.updateHitbox();
 
