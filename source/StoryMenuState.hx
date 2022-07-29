@@ -322,6 +322,7 @@ class StoryMenuState extends MusicBeatState
 	function changeDifficulty(change:Int = 0):Void
 	{
 		curDifficulty += change;
+		changeCharacter();
 		updateImages();
 
 		if (curDifficulty < 0)
@@ -491,7 +492,6 @@ class StoryMenuState extends MusicBeatState
 	}
 
 	public var character:String;
-
 	public function changeCharacter(?character:String = 'bf', diff:Int = 0){
           if(character == null) character = '';
           if(character == 'bf' && diff == 1) character = 'chara';
