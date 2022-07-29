@@ -317,12 +317,19 @@ class StoryMenuState extends MusicBeatState
 	var lastImagePath:String;
 	function changeDifficulty(change:Int = 0):Void
 	{
+     public function changeCharacter(?character:String = 'bf', diff:Int = 0){
+        if(character == null) character = '';
+        if(character == 'bf' && diff == 1) character = 'chara';
+        if(character == this.character) return;
+
+        this.character = character;
 		curDifficulty += change;
 
 		if (curDifficulty < 0)
 			curDifficulty = CoolUtil.difficulties.length-1;
 		if (curDifficulty >= CoolUtil.difficulties.length)
 			curDifficulty = 0;
+		changeCharacter();
 
 		var image:Dynamic = Paths.image('menudifficulties/' + Paths.formatToSongPath(CoolUtil.difficulties[curDifficulty]));
 		var newImagePath:String = '';
@@ -430,6 +437,26 @@ class StoryMenuState extends MusicBeatState
 		}
 		updateText();
 	}
+	
+	function updateImages(){
+        var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]);
+
+        bgSprite.visible = true;
+        var assetName:String = leWeek.weekBackground;
+        if(assetName == null || assetName.length < 1) {
+            bgSprite.visible = false;
+        } else {
+            if (curDifficulty == 1)
+                bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_stageCH'));
+            else
+                bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_stage'));
+        }
+
+        var weekArray:Array<String> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).weekCharacters;
+        for (i in 0...grpWeekCharacters.length) {
+            grpWeekCharacters.members[i].changeCharacter(weekArray[i], curDifficulty);
+        }
+    }
 
 	function weekIsLocked(weekNum:Int) {
 		var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[weekNum]);
