@@ -291,7 +291,7 @@ class MainMenuState extends MusicBeatState
 		   FlxTween.tween(characters, {x : 200, alpha: 0}, 0.2, {ease:FlxEase.cubeIn,
 		       onComplete: function(twn:FlxTween)
 		       {
-			 characters.animation.play(optionShit[curSelected]);
+			 //characters.animation.play(optionShit[curSelected]);
 			 FlxTween.tween(characters, {x : 0, alpha : 1}, 0.2, {ease:FlxEase.cubeOut});
 		      }
 	    });
@@ -300,12 +300,12 @@ class MainMenuState extends MusicBeatState
 	function changeItem(huh:Int = 0)
 	{
 		curSelected += huh;
-		tweenCharacter();
 
 		if (curSelected >= menuItems.length)
 			curSelected = 0;
 		if (curSelected < 0)
 			curSelected = menuItems.length - 1;
+		tweenCharacter();
 		
 		switch (curSelected) 
 		{
