@@ -188,15 +188,17 @@ class StoryMenuState extends MusicBeatState
 		changeWeek();
 		super.closeSubState();
 	}
-
+	
+	//public var character:String;
+	
 	override function update(elapsed:Float)
 	{
-	  public function changeCharacter(?character:String = 'bf', diff:Int = 0){
+	  /*public function changeCharacter(?character:String = 'bf', diff:Int = 0){
         if(character == null) character = '';
         if(character == 'bf' && diff == 1) character = 'chara';
         if(character == this.character) return;
 
-        this.character = character;
+        this.character = character;*/
 
 		// scoreText.setFormat('VCR OSD Mono', 32);
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, CoolUtil.boundTo(elapsed * 30, 0, 1)));
@@ -439,6 +441,8 @@ class StoryMenuState extends MusicBeatState
 		updateText();
 	}
 	
+	public var character:String;
+	
 	function updateImages(){
         var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]);
 
@@ -456,6 +460,13 @@ class StoryMenuState extends MusicBeatState
         var weekArray:Array<String> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).weekCharacters;
         for (i in 0...grpWeekCharacters.length) {
             grpWeekCharacters.members[i].changeCharacter(weekArray[i], curDifficulty);
+        
+        public function changeCharacter(?character:String = 'bf', diff:Int = 0){
+         if(character == null) character = '';
+         if(character == 'bf' && diff == 1) character = 'chara';
+         if(character == this.character) return;
+
+         this.character = character;
         }
     }
 
