@@ -321,15 +321,6 @@ class StoryMenuState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
 	}
-	
-	public var character:String;
-	public function changeCharacter(?character:String = 'bf', diff:Int = 0){
-        if(character == null) character = '';
-        if(character == 'bf' && diff == 1) character = 'chara';
-        if(character == this.character) return;
-
-        this.character = character;
-    }
 
 	var tweenDifficulty:FlxTween;
 	var lastImagePath:String;
@@ -464,6 +455,13 @@ class StoryMenuState extends MusicBeatState
                 bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_stage'));
         }
 
+	public function changeCharacter(?character:String = 'bf', diff:Int = 0){
+        if(character == null) character = '';
+        if(character == 'bf' && diff == 1) character = 'chara';
+        if(character == this.character) return;
+
+        this.character = character;
+        
         var weekArray:Array<String> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).weekCharacters;
         for (i in 0...grpWeekCharacters.length) {
             grpWeekCharacters.members[i].changeCharacter(weekArray[i], curDifficulty);
