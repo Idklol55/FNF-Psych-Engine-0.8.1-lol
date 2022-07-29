@@ -315,22 +315,15 @@ class StoryMenuState extends MusicBeatState
 
 	var tweenDifficulty:FlxTween;
 	var lastImagePath:String;
-	public var character:String;
 	function changeDifficulty(change:Int = 0):Void
 	{
-	    public function changeCharacter(?character:String = 'bf', diff:Int = 0){
-                if(character == null) character = '';
-                if(character == 'bf' && diff == 1) character = 'chara';
-                if(character == this.character) return;
-
-                this.character = character;
 		curDifficulty += change;
+		updateImages();
 
 		if (curDifficulty < 0)
 			curDifficulty = CoolUtil.difficulties.length-1;
 		if (curDifficulty >= CoolUtil.difficulties.length)
 			curDifficulty = 0;
-		updateImages();
 
 		var image:Dynamic = Paths.image('menudifficulties/' + Paths.formatToSongPath(CoolUtil.difficulties[curDifficulty]));
 		var newImagePath:String = '';
@@ -492,4 +485,11 @@ class StoryMenuState extends MusicBeatState
 		intendedScore = Highscore.getWeekScore(WeekData.weeksList[curWeek], curDifficulty);
 		#end
 	}
+}
+public function changeCharacter(?character:String = 'bf', diff:Int = 0){
+        if(character == null) character = '';
+        if(character == 'bf' && diff == 1) character = 'chara';
+        if(character == this.character) return;
+
+        this.character = character;
 }
