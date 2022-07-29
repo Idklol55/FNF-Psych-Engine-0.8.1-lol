@@ -324,8 +324,15 @@ class StoryMenuState extends MusicBeatState
 
 	var tweenDifficulty:FlxTween;
 	var lastImagePath:String;
+	public var character:String;
 	function changeDifficulty(change:Int = 0):Void
 	{
+	  public function changeCharacter(?character:String = 'bf', diff:Int = 0){
+        if(character == null) character = '';
+        if(character == 'bf' && diff == 1) character = 'chara';
+        if(character == this.character) return;
+
+        this.character = character;
 		curDifficulty += change;
 
 		if (curDifficulty < 0)
@@ -441,8 +448,6 @@ class StoryMenuState extends MusicBeatState
 		updateText();
 	}
 	
-	public var character:String;
-	
 	function updateImages(){
         var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]);
 
@@ -460,13 +465,6 @@ class StoryMenuState extends MusicBeatState
         var weekArray:Array<String> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).weekCharacters;
         for (i in 0...grpWeekCharacters.length) {
             grpWeekCharacters.members[i].changeCharacter(weekArray[i], curDifficulty);
-        
-        public function changeCharacter(?character:String = 'bf', diff:Int = 0){
-         if(character == null) character = '';
-         if(character == 'bf' && diff == 1) character = 'chara';
-         if(character == this.character) return;
-
-         this.character = character;
         }
     }
 
