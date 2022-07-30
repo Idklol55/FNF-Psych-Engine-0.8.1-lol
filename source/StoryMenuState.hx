@@ -321,9 +321,8 @@ class StoryMenuState extends MusicBeatState
 	var lastImagePath:String;
 	function changeDifficulty(change:Int = 0):Void
 	{
-		curDifficulty += change;
-		changeCharacter();
 		updateImages();
+		curDifficulty += change;
 
 		if (curDifficulty < 0)
 			curDifficulty = CoolUtil.difficulties.length-1;
@@ -367,6 +366,7 @@ class StoryMenuState extends MusicBeatState
 
 	function changeWeek(change:Int = 0):Void
 	{
+		changeCharacter();
 		curWeek += change;
 
 		if (curWeek >= WeekData.weeksList.length)
