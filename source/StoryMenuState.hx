@@ -438,12 +438,12 @@ class StoryMenuState extends MusicBeatState
 	}
 	
 	function updateImages(){
-        var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]);
+             var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]);
 
-        bgSprite.visible = true;
-        var assetName:String = leWeek.weekBackground;
-        if(assetName == null || assetName.length < 1) {
-            bgSprite.visible = false;
+             bgSprite.visible = true;
+             var assetName:String = leWeek.weekBackground;
+             if(assetName == null || assetName.length < 1) {
+                 bgSprite.visible = false;
              } else {
                if (curDifficulty == 1)
                    bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_stageCH'));
