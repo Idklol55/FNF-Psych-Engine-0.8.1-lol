@@ -444,18 +444,18 @@ class StoryMenuState extends MusicBeatState
         var assetName:String = leWeek.weekBackground;
         if(assetName == null || assetName.length < 1) {
             bgSprite.visible = false;
-        } else {
-            if (curDifficulty == 1)
-                bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_stageCH'));
-            else
-                bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_stage'));
-        }
+             } else {
+               if (curDifficulty == 1)
+                   bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_stageCH'));
+               else
+                   bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_stage'));
+             }
 
-        var weekArray:Array<String> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).weekCharacters;
-        for (i in 0...grpWeekCharacters.length) {
-            grpWeekCharacters.members[1].changeCharacter(weekArray[1], curDifficulty);
+             var weekArray:Array<String> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).weekCharacters;
+             for (i in 0...grpWeekCharacters.length) {
+                grpWeekCharacters.members[1].changeCharacter(weekArray[1], curDifficulty);
+             }
         }
-    }
 
 	function weekIsLocked(weekNum:Int) {
 		var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[weekNum]);
