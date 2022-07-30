@@ -319,23 +319,15 @@ class StoryMenuState extends MusicBeatState
 
 	var tweenDifficulty:FlxTween;
 	var lastImagePath:String;
-	public var character:String;
 	function changeDifficulty(change:Int = 0):Void
 	{
-	   public function changeCharacter(?character:String = 'bf', diff:Int = 0){
-             if(character == null) character = '';
-             if(character == 'bf' && diff == 1) character = 'chara';
-             if(character == this.character) return;
-
-             this.character = character;
-	   }
-		updateImages();
 		curDifficulty += change;
 
 		if (curDifficulty < 0)
 			curDifficulty = CoolUtil.difficulties.length-1;
 		if (curDifficulty >= CoolUtil.difficulties.length)
 			curDifficulty = 0;
+		changeCharacter();
 
 		var image:Dynamic = Paths.image('menudifficulties/' + Paths.formatToSongPath(CoolUtil.difficulties[curDifficulty]));
 		var newImagePath:String = '';
@@ -374,13 +366,13 @@ class StoryMenuState extends MusicBeatState
 
 	function changeWeek(change:Int = 0):Void
 	{
-		changeCharacter();
 		curWeek += change;
 
 		if (curWeek >= WeekData.weeksList.length)
 			curWeek = 0;
 		if (curWeek < 0)
 			curWeek = WeekData.weeksList.length - 1;
+		updateImages();
 
 		var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]);
 		WeekData.setDirectoryFromWeek(leWeek);
@@ -445,6 +437,15 @@ class StoryMenuState extends MusicBeatState
 		updateText();
 	}
 	
+	public var character:String;
+	public function changeCharacter(?character:String = 'bf', diff:Int = 0){
+            if(character == null) character = '';
+            if(character == 'bf' && diff == 1) character = 'chara';
+            if(character == this.character) return;
+
+            this.character = character;
+        }
+	
 	function updateImages(){
            var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]);
 
@@ -462,6 +463,8 @@ class StoryMenuState extends MusicBeatState
              var weekArray:Array<String> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).weekCharacters;
              for (i in 0...grpWeekCharacters.length) {
                 grpWeekCharacters.members[i].changeCharacter(weekArray[i]);
+              
+              changeCharacter();
              }
         }
 
