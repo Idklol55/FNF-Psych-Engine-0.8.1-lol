@@ -4602,7 +4602,7 @@ class PlayState extends MusicBeatState
                 cinematicBars["top"].screenCenter(X);
                 cinematicBars["top"].cameras = [camBars];
                 cinematicBars["top"].y = 0 - cinematicBars["top"].height; // offscreen
-                add(cinematicBars[''top'']);
+                add(cinematicBars["top"]);
             }
           
             if (cinematicBars["bottom"] == null)
