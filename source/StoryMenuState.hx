@@ -398,8 +398,8 @@ class StoryMenuState extends MusicBeatState
 		} else {
 			bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_' + assetName));
 		}
+
 		updateImages();
-		
 		PlayState.storyWeek = curWeek;
 
 		CoolUtil.difficulties = CoolUtil.defaultDifficulties.copy();
