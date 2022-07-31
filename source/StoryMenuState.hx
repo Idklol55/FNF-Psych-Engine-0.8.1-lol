@@ -327,7 +327,6 @@ class StoryMenuState extends MusicBeatState
 			curDifficulty = CoolUtil.difficulties.length-1;
 		if (curDifficulty >= CoolUtil.difficulties.length)
 			curDifficulty = 0;
-		updateImages();
 
 		var image:Dynamic = Paths.image('menudifficulties/' + Paths.formatToSongPath(CoolUtil.difficulties[curDifficulty]));
 		var newImagePath:String = '';
@@ -399,6 +398,7 @@ class StoryMenuState extends MusicBeatState
 		} else {
 			bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_' + assetName));
 		}
+		updateImages();
 		
 		PlayState.storyWeek = curWeek;
 
@@ -436,15 +436,6 @@ class StoryMenuState extends MusicBeatState
 		updateText();
 	}
 	
-	public var character:String;
-	public function changeCharacter(?character:String = 'bf', diff:Int = 0){
-            if(character == null) character = '';
-            if(character == 'bf' && diff == 1) character = 'chara';
-            if(character == this.character) return;
-
-            this.character = character;
-        }
-	
 	function updateImages(){
            var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]);
 
@@ -461,9 +452,7 @@ class StoryMenuState extends MusicBeatState
 
              var weekArray:Array<String> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).weekCharacters;
              for (i in 0...grpWeekCharacters.length) {
-                grpWeekCharacters.members[i].changeCharacter(weekArray[i]);
-              
-              changeCharacter();
+                grpWeekCharacters.members[i].changeCharacter(weekArray[i], curDifficulty;
              }
         }
 
