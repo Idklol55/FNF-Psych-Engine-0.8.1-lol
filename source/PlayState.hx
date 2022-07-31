@@ -4609,7 +4609,7 @@ class PlayState extends MusicBeatState
                cinematicBars[''bottom''] = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height / thickness), FlxColor.BLACK);
                cinematicBars[''bottom''].screenCenter(X);
                cinematicBars[''bottom''].cameras = [camBars];
-               cinematicBars[''bottom''].FlxG.height; // offscreen
+               cinematicBars[''bottom''].y = FlxG.height; // offscreen
                add(cinematicBars[''bottom'']);
           }
           
