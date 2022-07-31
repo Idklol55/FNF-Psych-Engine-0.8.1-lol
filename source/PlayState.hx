@@ -4615,7 +4615,7 @@ class PlayState extends MusicBeatState
            }
 
            FlxTween.tween(cinematicBars["top"], {y: 0}, speed, {ease: FlxEase.circInOut});
-           FlxTween.tween(cinematicBars["bottom"], {y: FlxG.height - cinematicBars[''bottom''].height}, speed, {ease: FlxEase.circInOut});
+           FlxTween.tween(cinematicBars["bottom"], {y: FlxG.height - cinematicBars["bottom"].height}, speed, {ease: FlxEase.circInOut});
         }
 
 	var curLight:Int = 0;
