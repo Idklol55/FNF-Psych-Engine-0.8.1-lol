@@ -193,6 +193,7 @@ class PlayState extends MusicBeatState
 	public var camGame:FlxCamera;
 	public var camOther:FlxCamera;
 	public var cameraSpeed:Float = 1;
+	public var thickness:Float = 7;
 
 	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
 	var dialogueJson:DialogueFile = null;
@@ -4247,8 +4248,18 @@ class PlayState extends MusicBeatState
 		if(curStep == lastStepHit) {
 			return;
 		}
-
+			
 		lastStepHit = curStep;
+
+		if (SONG.song.toLowerCase()=='bopeebo')
+			{
+				switch (curStep)
+					{
+						case 30:
+							addCinematicBars();
+								}
+					}
+			}
 		setOnLuas('curStep', curStep);
 		callOnLuas('onStepHit', []);
 	}
@@ -4582,6 +4593,30 @@ class PlayState extends MusicBeatState
 		return null;
 	}
 	#end
+	
+	function addCinematicBars(speed:Float, ?thickness:Float = 7)
+    {
+        if (cinematicBars[''top''] == null)
+        {
+             cinematicBars[''top''] = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height / thickness), FlxColor.BLACK);
+             cinematicBars[''top''].screenCenter(X);
+             cinematicBars[''top''].cameras = [camBars];
+             cinematicBars[''top''].y = 0 - cinematicBars[''top''].height; // offscreen
+             add(cinematicBars[''top'']);
+          }
+          
+          if (cinematicBars[''bottom''] == null)
+          {
+               cinematicBars[''bottom''] = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height / thickness), FlxColor.BLACK);
+               cinematicBars[''bottom''].screenCenter(X);
+               cinematicBars[''bottom''].cameras = [camBars];
+               cinematicBars[''bottom''].FlxG.height; // offscreen
+               add(cinematicBars[''bottom'']);
+          }
+          
+          FlxTween.tween(cinematicBars[''top''], {y: 0}, speed, {ease: FlxEase.circInOut});
+          FlxTween.tween(cinematicBars[''bottom''], {y: FlxG.height - cinematicBars[''bottom''].height}, speed, {ease: FlxEase.circInOut});
+    }
 
 	var curLight:Int = 0;
 	var curLightEvent:Int = 0;
