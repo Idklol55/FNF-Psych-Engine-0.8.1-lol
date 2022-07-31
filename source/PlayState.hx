@@ -4255,9 +4255,8 @@ class PlayState extends MusicBeatState
 			{
 				switch (curStep)
 					{
-						case 30:
-							addCinematicBars();
-								}
+					case 30:
+						addCinematicBars();
 					}
 			}
 		setOnLuas('curStep', curStep);
