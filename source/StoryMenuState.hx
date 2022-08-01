@@ -437,32 +437,24 @@ class StoryMenuState extends MusicBeatState
 	}
 	
 	function updateImages(){
-        var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]);
+            var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]);
 
-        bgSprite.visible = true;
-        var assetName:String = leWeek.weekBackground;
-        if(assetName == null || assetName.length < 1) {
-            bgSprite.visible = false;
-        } else {
-            if (curDifficulty == 1)
-                bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_stageCH'));
-            else
-                bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_stage'));
-        }
+            bgSprite.visible = true;
+            var assetName:String = leWeek.weekBackground;
+            if(assetName == null || assetName.length < 1) {
+                bgSprite.visible = false;
+            } else {
+                if (curDifficulty == 1)
+                    bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_stageCH'));
+                else
+                    bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_stage'));
+            }
 
-        var weekArray:Array<String> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).weekCharacters;
-        for (i in 0...grpWeekCharacters.length) {
-            grpWeekCharacters.members[i].changeCharacter(weekArray[i], curDifficulty);
+            var weekArray:Array<String> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).weekCharacters;
+            for (i in 0...grpWeekCharacters.length) {
+                grpWeekCharacters.members[i].changeCharacter(weekArray[i], curDifficulty);
+            }
         }
-        
-        public function changeCharacter(?character:String = 'bf', diff:Int = 0){
-             if(character == null) character = '';
-             if(character == 'bf' && diff == 1) character = 'chara';
-             if(character == this.character) return;
-
-            this.character = character;
-        }
-    }
 
 	function weekIsLocked(weekNum:Int) {
 		var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[weekNum]);
