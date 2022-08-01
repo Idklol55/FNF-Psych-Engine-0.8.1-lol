@@ -4252,14 +4252,14 @@ class PlayState extends MusicBeatState
 			
 		lastStepHit = curStep;
 
-		if (SONG.song.toLowerCase()=='bopeebo')
+		/*if (SONG.song.toLowerCase()=='bopeebo')
 			{
 				switch (curStep)
 					{
 					case 30:
-						addCinematicBars();
+					  addCinematicBars();
 					}
-			}
+			}*/
 		setOnLuas('curStep', curStep);
 		callOnLuas('onStepHit', []);
 	}
