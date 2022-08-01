@@ -249,9 +249,7 @@ class PlayState extends MusicBeatState
 	public var inCutscene:Bool = false;
 	public var skipCountdown:Bool = false;
 	var songLength:Float = 0;
-
-	var thickness:Float = 7;
-	
+	var barSongLength:Float = 0;
 	#if desktop
 	// Discord RPC variables
 	var storyDifficultyText:String = "";
@@ -1786,6 +1784,12 @@ class PlayState extends MusicBeatState
 
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
+		barSongLength = songLength;
+		if(SONG.song.toLowerCase()=='bopeebo'){
+			barSongLength = 35000;
+			//useDirectionalCamera=true;
+		}
+		
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		
@@ -2452,9 +2456,9 @@ class PlayState extends MusicBeatState
 				if(updateTime) {
 					var curTime:Float = Conductor.songPosition - ClientPrefs.noteOffset;
 					if(curTime < 0) curTime = 0;
-					songPercent = (curTime / songLength);
+					songPercent = (curTime / barSongLength);
 
-					var songCalc:Float = (songLength - curTime);
+					var songCalc:Float = (barSongLength - curTime);
 					if(ClientPrefs.timeBarType == 'Time Elapsed') songCalc = curTime;
 
 					var secondsTotal:Int = Math.floor(songCalc / 1000);
@@ -4252,14 +4256,14 @@ class PlayState extends MusicBeatState
 			
 		lastStepHit = curStep;
 
-		/*if (SONG.song.toLowerCase()=='bopeebo')
+		if (SONG.song.toLowerCase()=='bopeebo')
 			{
 				switch (curStep)
 					{
-					case 30:
-					  addCinematicBars();
+					case 20:
+					  FlxTween.tween(this, {barSongLength: songLength,}, 3);
 					}
-			}*/
+			}
 		setOnLuas('curStep', curStep);
 		callOnLuas('onStepHit', []);
 	}
