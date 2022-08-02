@@ -4260,8 +4260,8 @@ class PlayState extends MusicBeatState
 			{
 				switch (curStep)
 					{
-					case 20:
-					  FlxTween.tween(this, {barSongLength: songLength,}, 3);
+					case 100:
+					  FlxTween.tween(this, {barSongLength: songLength,}, speed); //3
 					}
 			}
 		setOnLuas('curStep', curStep);
