@@ -391,6 +391,7 @@ class StoryMenuState extends MusicBeatState
 			bullShit++;
 		}
 
+		updateImages();
 		bgSprite.visible = true;
 		var assetName:String = leWeek.weekBackground;
 		if(assetName == null || assetName.length < 1) {
@@ -399,7 +400,6 @@ class StoryMenuState extends MusicBeatState
 			bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_' + assetName));
 		}
 
-		updateImages();
 		PlayState.storyWeek = curWeek;
 
 		CoolUtil.difficulties = CoolUtil.defaultDifficulties.copy();
@@ -452,7 +452,7 @@ class StoryMenuState extends MusicBeatState
 
             var weekArray:Array<String> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).weekCharacters;
             for (i in 0...grpWeekCharacters.length) {
-                //grpWeekCharacters.members[i].changeCharacter(weekArray[i], curDifficulty);
+                grpWeekCharacters.members[i].changeCharacter(weekArray[i], curDifficulty);
             }
         }
 
