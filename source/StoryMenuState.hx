@@ -439,12 +439,12 @@ class StoryMenuState extends MusicBeatState
 	
 	public var character:String;
 	public function changeCharacter(?character:String = 'bf', diff:Int = 0){
-        if(character == null) character = '';
-        if(character == 'bf' && diff == 1) character = 'chara';
-        if(character == this.character) return;
+          if(character == null) character = '';
+          if(character == 'bf' && diff == 1) character = 'chara';
+          if(character == this.character) return;
 
-        this.character = character;
-    }
+          this.character = character;
+        }
 	
 	function updateImages(){
             var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]);
