@@ -337,6 +337,7 @@ class StoryMenuState extends MusicBeatState
 		}
 		else
 			newImagePath = image;
+                        updateImages();
 
 		if(newImagePath != lastImagePath)
 		{
@@ -391,7 +392,6 @@ class StoryMenuState extends MusicBeatState
 			bullShit++;
 		}
 
-		updateImages();
 		bgSprite.visible = true;
 		var assetName:String = leWeek.weekBackground;
 		if(assetName == null || assetName.length < 1) {
@@ -452,7 +452,7 @@ class StoryMenuState extends MusicBeatState
 
             var weekArray:Array<String> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).weekCharacters;
             for (i in 0...grpWeekCharacters.length) {
-                grpWeekCharacters.members[i].changeCharacter(weekArray[i], curDifficulty);
+                grpWeekCharacters.members[i].changeCharacter(weekArray[i]);
             }
         }
 
