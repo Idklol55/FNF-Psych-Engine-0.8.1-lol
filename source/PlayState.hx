@@ -1786,7 +1786,7 @@ class PlayState extends MusicBeatState
 		songLength = FlxG.sound.music.length;
 		barSongLength = songLength;
 		if(SONG.song.toLowerCase()=='bopeebo'){
-			barSongLength = 35000;
+			barSongLength = 31000;
 			//useDirectionalCamera=true;
 		}
 		
@@ -4262,7 +4262,7 @@ class PlayState extends MusicBeatState
 					{
 					case 200:
 					   //FlxTween.tween(this, {barSongLength: songLength,}, 3);
-					   FlxTween.tween(this, {barSongLength: songLength,}, 3, {ease: FlxEase.circIn});
+					   FlxTween.tween(this, {barSongLength: songLength,}, 3, {ease: FlxEase.circInOut});
 					}
 			}
 		setOnLuas('curStep', curStep);
