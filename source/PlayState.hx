@@ -4262,7 +4262,7 @@ class PlayState extends MusicBeatState
 					{
 					case 200:
 					   //FlxTween.tween(this, {barSongLength: songLength,}, 3);
-					   FlxTween.tween(this, {barSongLength: songLength,}, 3, {ease: FlxEase.circInOut});
+					   FlxTween.tween(this, {barSongLength: songLength,}, 3, {ease: FlxEase.cubeInOut});
 					}
 			}
 		setOnLuas('curStep', curStep);
