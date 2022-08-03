@@ -253,7 +253,8 @@ class PlayState extends MusicBeatState
 	
 	var thickness:Float = 7;
 	var speed:Float;
-	var cinematicBars:String;
+	var top:FlxSprite;
+	var bottom:FlxSprite;
 	
 	#if desktop
 	// Discord RPC variables
