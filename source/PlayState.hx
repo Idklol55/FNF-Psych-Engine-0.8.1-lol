@@ -4269,6 +4269,7 @@ class PlayState extends MusicBeatState
 					case 230:
 					   //FlxTween.tween(this, {barSongLength: songLength,}, 3);
 					   FlxTween.tween(this, {barSongLength: songLength,}, 1, {ease:FlxEase.quintInOut});
+                                           addCinematicBars();
 					   for (i in playerStrums) {
 				              FlxTween.tween(i, {alpha: 1}, 2, {ease: FlxEase.linear});
 		                }
@@ -4615,7 +4616,7 @@ class PlayState extends MusicBeatState
                 top = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height / thickness), FlxColor.BLACK);
                 top.screenCenter(X);
                 top.cameras = [camGame];
-                top.y = 0 - cinematicBars["top"].height; // offscreen
+                top.y = 0 - top.height; // offscreen
                 add(top);
             }
           
