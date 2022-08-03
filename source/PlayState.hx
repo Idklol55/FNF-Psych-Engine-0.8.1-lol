@@ -252,7 +252,7 @@ class PlayState extends MusicBeatState
 	var barSongLength:Float = 0;
 	
 	var thickness:Float = 7;
-	var speed:Float;
+	var speed:Null<Float>;
 	var top:FlxSprite;
 	var bottom:FlxSprite;
 	
