@@ -253,6 +253,7 @@ class PlayState extends MusicBeatState
 	
 	var thickness:Float = 7;
 	var speed:Float;
+	var cinematicBars:FlxSprite;
 	
 	#if desktop
 	// Discord RPC variables
@@ -4266,7 +4267,7 @@ class PlayState extends MusicBeatState
 					{
 					case 240:
 					   //FlxTween.tween(this, {barSongLength: songLength,}, 3);
-					   FlxTween.tween(this, {barSongLength: songLength,}, 2, {ease:FlxEase.expoInOut});
+					   FlxTween.tween(this, {barSongLength: songLength,}, 1, {ease:FlxEase.quintInOut});
 					}
 			}
 		setOnLuas('curStep', curStep);
