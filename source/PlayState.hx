@@ -250,6 +250,10 @@ class PlayState extends MusicBeatState
 	public var skipCountdown:Bool = false;
 	var songLength:Float = 0;
 	var barSongLength:Float = 0;
+	
+	var thickness:Float = 7;
+	var speed:Float;
+	
 	#if desktop
 	// Discord RPC variables
 	var storyDifficultyText:String = "";
@@ -4599,7 +4603,7 @@ class PlayState extends MusicBeatState
 	}
 	#end
 	
-	/*function addCinematicBars(speed:Float, ?thickness:Float = 7)
+	function addCinematicBars(speed:Float, ?thickness:Float = 7)
         {
             if (cinematicBars["top"] == null)
             {
@@ -4621,7 +4625,7 @@ class PlayState extends MusicBeatState
 
            FlxTween.tween(cinematicBars["top"], {y: 0}, speed, {ease: FlxEase.circInOut});
            FlxTween.tween(cinematicBars["bottom"], {y: FlxG.height - cinematicBars["bottom"].height}, speed, {ease: FlxEase.circInOut});
-        }*/
+        }
 
 	var curLight:Int = 0;
 	var curLightEvent:Int = 0;
