@@ -251,8 +251,6 @@ class PlayState extends MusicBeatState
 	var songLength:Float = 0;
 	var barSongLength:Float = 0;
 	
-	var thickness:Null<Float>;
-	var speed:Float;
 	var top:FlxSprite;
 	var bottom:FlxSprite;
 	
@@ -4609,11 +4607,11 @@ class PlayState extends MusicBeatState
 	}
 	#end
 	
-	function addCinematicBars(speed:Float)
+	function addCinematicBars(speed:Float, ?thickness:Float = 7)
         {
             if (top == null)
             {
-                top = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height), FlxColor.BLACK);
+                top = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height / thickness), FlxColor.BLACK);
                 top.screenCenter(X);
                 top.cameras = [camGame];
                 top.y = 0 - top.height; // offscreen
@@ -4622,7 +4620,7 @@ class PlayState extends MusicBeatState
           
             if (bottom == null)
             {
-                bottom = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height), FlxColor.BLACK);
+                bottom = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height / thickness), FlxColor.BLACK);
                 bottom.screenCenter(X);
                 bottom.cameras = [camGame];
                 bottom.y = FlxG.height; // offscreen
