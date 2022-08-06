@@ -4268,9 +4268,9 @@ class PlayState extends MusicBeatState
 					   //FlxTween.tween(this, {barSongLength: songLength,}, 3);
 					   FlxTween.tween(this, {barSongLength: songLength,}, 5, {ease:FlxEase.quintInOut});
                                            //addCinematicBars();
-					   for (i in playerStrums) {
-				              FlxTween.tween(i, {alpha: 1}, 2, {ease: FlxEase.linear});
-		                }
+						for (i in playerStrums) {
+							FlxTween.tween(i, {alpha: 0}, 2, {ease: FlxEase.linear});
+						}
 					}
 			}
 		setOnLuas('curStep', curStep);
