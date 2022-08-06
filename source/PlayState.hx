@@ -4612,7 +4612,7 @@ class PlayState extends MusicBeatState
 	}
 	#end
 	
-	/*function addCinematicBars(speed:Float)
+	function addCinematicBars(speed:Float)
            {
                 top = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height), FlxColor.BLACK);
                 top.screenCenter(X);
@@ -4623,7 +4623,7 @@ class PlayState extends MusicBeatState
             FlxTween.tween(top, {y: 0}, speed, {ease: FlxEase.circInOut});
          }
          
-        function removeCinematicBars(speed:Float)
+        /*function removeCinematicBars(speed:Float)
             {
                 bottom = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height), FlxColor.BLACK);
                 bottom.screenCenter(X);
