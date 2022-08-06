@@ -4266,9 +4266,14 @@ class PlayState extends MusicBeatState
 					{
 					case 230:
 					   //FlxTween.tween(this, {barSongLength: songLength,}, 3);
-					   FlxTween.tween(this, {barSongLength: songLength,}, 5, {ease:FlxEase.quintInOut});
+					   FlxTween.tween(this, {barSongLength: songLength,}, 6, {ease: FlxEase..cubeInOut});
                                            //addCinematicBars();
-						for (i in playerStrums) {
+						FlxTween.tween(healthBarBG, {alpha: 0}, 2, {ease: FlxEase.linear});
+						FlxTween.tween(healthBar, {alpha: 0}, 2, {ease: FlxEase.linear});
+						FlxTween.tween(iconP1, {alpha: 0}, 2, {ease: FlxEase.linear});
+						FlxTween.tween(iconP2, {alpha: 0}, 2, {ease: FlxEase.linear});
+						FlxTween.tween(scoreTxt, {alpha: 0}, 2, {ease: FlxEase.linear});
+						for (i in opponentStrums) {
 							FlxTween.tween(i, {alpha: 0}, 2, {ease: FlxEase.linear});
 						}
 					}
@@ -4607,27 +4612,25 @@ class PlayState extends MusicBeatState
 	}
 	#end
 	
-	/*function addCinematicBars(speed:Float, ?thickness:Float = 7)
-        {
-            if (top == null)
-            {
-                top = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height / thickness), FlxColor.BLACK);
+	/*function addCinematicBars(speed:Float)
+           {
+                top = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height), FlxColor.BLACK);
                 top.screenCenter(X);
                 top.cameras = [camGame];
                 top.y = 0 - top.height; // offscreen
                 add(top);
             }
-          
-            if (bottom == null)
+            FlxTween.tween(top, {y: 0}, speed, {ease: FlxEase.circInOut});
+         }
+         
+        function removeCinematicBars(speed:Float)
             {
-                bottom = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height / thickness), FlxColor.BLACK);
+                bottom = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height), FlxColor.BLACK);
                 bottom.screenCenter(X);
                 bottom.cameras = [camGame];
                 bottom.y = FlxG.height; // offscreen
                 add(bottom);
            }
-
-           FlxTween.tween(top, {y: 0}, speed, {ease: FlxEase.circInOut});
            FlxTween.tween(bottom, {y: FlxG.height - bottom.height}, speed, {ease: FlxEase.circInOut});
         }*/
 
