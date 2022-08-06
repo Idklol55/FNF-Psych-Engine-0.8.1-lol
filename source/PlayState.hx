@@ -4266,7 +4266,7 @@ class PlayState extends MusicBeatState
 					{
 					case 230:
 					   //FlxTween.tween(this, {barSongLength: songLength,}, 3);
-					   FlxTween.tween(this, {barSongLength: songLength,}, 1, {ease:FlxEase.quintInOut});
+					   FlxTween.tween(this, {barSongLength: songLength,}, 5, {ease:FlxEase.quintInOut});
                                            //addCinematicBars();
 					   for (i in playerStrums) {
 				              FlxTween.tween(i, {alpha: 1}, 2, {ease: FlxEase.linear});
