@@ -4267,7 +4267,7 @@ class PlayState extends MusicBeatState
 					case 230:
 					   //FlxTween.tween(this, {barSongLength: songLength,}, 3);
 					   FlxTween.tween(this, {barSongLength: songLength,}, 1, {ease:FlxEase.quintInOut});
-                                           addCinematicBars();
+                                           //addCinematicBars();
 					   for (i in playerStrums) {
 				              FlxTween.tween(i, {alpha: 1}, 2, {ease: FlxEase.linear});
 		                }
@@ -4607,7 +4607,7 @@ class PlayState extends MusicBeatState
 	}
 	#end
 	
-	function addCinematicBars(speed:Float, ?thickness:Float = 7)
+	/*function addCinematicBars(speed:Float, ?thickness:Float = 7)
         {
             if (top == null)
             {
@@ -4629,7 +4629,7 @@ class PlayState extends MusicBeatState
 
            FlxTween.tween(top, {y: 0}, speed, {ease: FlxEase.circInOut});
            FlxTween.tween(bottom, {y: FlxG.height - bottom.height}, speed, {ease: FlxEase.circInOut});
-        }
+        }*/
 
 	var curLight:Int = 0;
 	var curLightEvent:Int = 0;
