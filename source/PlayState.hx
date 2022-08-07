@@ -4619,7 +4619,7 @@ class PlayState extends MusicBeatState
                 top.cameras = [camOther];
                 top.y = 0 - top.height; // offscreen
                 add(top);
-            }
+            
                 bottom = new FlxSprite(0, 0).makeGraphic(FlxG.width, Std.int(FlxG.height), FlxColor.BLACK);
                 bottom.screenCenter(X);
                 bottom.cameras = [camOther];
