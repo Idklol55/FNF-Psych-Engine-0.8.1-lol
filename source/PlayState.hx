@@ -4626,8 +4626,8 @@ class PlayState extends MusicBeatState
                 bottom.y = FlxG.height; // offscreen
                 add(bottom);
              
-            FlxTween.tween(top, {y: 2}, 2, {ease: FlxEase.circInOut});
-            FlxTween.tween(bottom, {y: 2}, 2, {ease: FlxEase.circInOut});
+            FlxTween.tween(top, {y: 110}, 2, {ease: FlxEase.circInOut});
+            FlxTween.tween(bottom, {y: -10}, 2, {ease: FlxEase.circInOut});
          }
          
         /*function removeCinematicBars(speed:Float)
