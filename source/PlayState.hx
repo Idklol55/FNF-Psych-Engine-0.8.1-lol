@@ -4614,20 +4614,20 @@ class PlayState extends MusicBeatState
 	
 	function addCinematicBars()
            {
-                top = new FlxSprite(0, -170).makeGraphic(FlxG.width, Std.int(FlxG.height), FlxColor.BLACK);
+                top = new FlxSprite(0, -120).makeGraphic(FlxG.width, FlxG.height), FlxColor.BLACK);
                 top.screenCenter(X);
                 top.cameras = [camOther];
-                top.y = 0 - top.height; // offscreen
+               // top.y = 0 - top.height; // offscreen
                 add(top);
             
-                bottom = new FlxSprite(0, 720).makeGraphic(FlxG.width, Std.int(FlxG.height), FlxColor.BLACK);
+                bottom = new FlxSprite(0, 720).makeGraphic(FlxG.width, FlxG.height), FlxColor.BLACK);
                 bottom.screenCenter(X);
                 bottom.cameras = [camOther];
-                bottom.y = FlxG.height; // offscreen
+                //bottom.y = FlxG.height; // offscreen
                 add(bottom);
              
             FlxTween.tween(top, {y: 0}, 2, {ease: FlxEase.circInOut});
-            FlxTween.tween(bottom, {y: FlxG.height - 720}, 2, {ease: FlxEase.circInOut});
+            FlxTween.tween(bottom, {y: FlxG.height - 600}, 2, {ease: FlxEase.circInOut});
          }
          
         /*function removeCinematicBars(speed:Float)
