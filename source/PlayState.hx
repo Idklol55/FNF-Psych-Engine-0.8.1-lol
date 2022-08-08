@@ -4614,13 +4614,13 @@ class PlayState extends MusicBeatState
 	
 	function addCinematicBars()
            {
-                top = new FlxSprite(0, -120).makeGraphic(FlxG.width, FlxG.height), FlxColor.BLACK);
+                top = new FlxSprite(0, 0).makeGraphic(FlxG.width, -120), FlxColor.BLACK);
                 top.screenCenter(X);
                 top.cameras = [camOther];
                // top.y = 0 - top.height; // offscreen
                 add(top);
             
-                bottom = new FlxSprite(0, 720).makeGraphic(FlxG.width, FlxG.height), FlxColor.BLACK);
+                bottom = new FlxSprite(0, 0).makeGraphic(FlxG.width, 720), FlxColor.BLACK);
                 bottom.screenCenter(X);
                 bottom.cameras = [camOther];
                 //bottom.y = FlxG.height; // offscreen
