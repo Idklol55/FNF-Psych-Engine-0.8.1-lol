@@ -191,6 +191,7 @@ class PlayState extends MusicBeatState
 	public var iconP2:HealthIcon;
 	public var camHUD:FlxCamera;
 	public var camGame:FlxCamera;
+	private var camOVERLAY:FlxCamera;
 	public var camOther:FlxCamera;
 	public var cameraSpeed:Float = 1;
 
@@ -319,11 +320,14 @@ class PlayState extends MusicBeatState
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
 		camHUD = new FlxCamera();
+		camOVERLAY = new FlxCamera();
 		camOther = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
+		camOVERLAY.bgColor.alpha = 0;
 		camOther.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
+		FlxG.cameras.add(camOVERLAY);
 		FlxG.cameras.add(camHUD);
 		FlxG.cameras.add(camOther);
 		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
@@ -4623,13 +4627,13 @@ class PlayState extends MusicBeatState
 			
 			top = new FlxSprite(0, -100).makeGraphic(FlxG.width, 100, FlxColor.BLACK);
 			top.screenCenter(X);
-			top.cameras = [camOther];
+			top.cameras = [camOVERLAY];
 			top.scrollFactor.set(0, 0);
 			add(top);
 
 			bottom = new FlxSprite(0, 720).makeGraphic(FlxG.width, 100, FlxColor.BLACK);
 			bottom.screenCenter(X);
-			bottom.cameras = [camOther];
+			bottom.cameras = [camOVERLAY];
 			bottom.scrollFactor.set(0, 0);
 			add(bottom);
 
