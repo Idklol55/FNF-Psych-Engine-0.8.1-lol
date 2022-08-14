@@ -4643,15 +4643,8 @@ class PlayState extends MusicBeatState
 		else
 		{
 			CinematicBars = false;
-
-			if (top != null)
-			{
-				FlxTween.tween(top, {y: -100}, 1.5, {ease: FlxEase.circInOut});
-			}
-
-			if (bottom != null)
-			{
-				FlxTween.tween(bottom, {y: 720}, 1.5, {ease: FlxEase.circInOut});
+			FlxTween.tween(top, {y: -100}, 2, {ease: FlxEase.circInOut});
+			FlxTween.tween(bottom, {y: 720}, 2, {ease: FlxEase.circInOut});
 			}
 		}
 	}
