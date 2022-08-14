@@ -253,6 +253,7 @@ class PlayState extends MusicBeatState
 	
 	var top:FlxSprite;
 	var bottom:FlxSprite;
+	var CinematicBars:Bool = false;
 	
 	#if desktop
 	// Discord RPC variables
@@ -4268,6 +4269,7 @@ class PlayState extends MusicBeatState
                        addCinematicBars();
 					case 230:
 					   //FlxTween.tween(this, {barSongLength: songLength,}, 3);
+						addCinematicBars();
 					    FlxTween.tween(this, {barSongLength: songLength,}, 8, {ease: FlxEase.circInOut});
 						FlxTween.tween(healthBarBG, {alpha: 0}, 2, {ease: FlxEase.linear});
 						FlxTween.tween(healthBar, {alpha: 0}, 2, {ease: FlxEase.linear});
@@ -4614,22 +4616,41 @@ class PlayState extends MusicBeatState
 	#end
 	
 	function addCinematicBars()
-           {
-                top = new FlxSprite(0, -100).makeGraphic(FlxG.width, 100, FlxColor.BLACK);
-                top.screenCenter(X);
-                top.cameras = [camOther];
-                top.y = 720; // offscreen
-                add(top);
-            
-                bottom = new FlxSprite(0, 720).makeGraphic(FlxG.width, 100, FlxColor.BLACK);
-                bottom.screenCenter(X);
-                bottom.cameras = [camOther];
-                bottom.y = -115; // offscreen
-                add(bottom);
-             
-            FlxTween.tween(top, {y: 620}, 2, {ease: FlxEase.circInOut});
-            FlxTween.tween(bottom, {y: -15}, 2, {ease: FlxEase.circInOut});
-         }
+	{
+		if (!CinematicBars)
+		{
+			CinematicBars = true;
+			
+			top = new FlxSprite(0, -100).makeGraphic(FlxG.width, 100, FlxColor.BLACK);
+			top.screenCenter(X);
+			top.cameras = [camOther];
+			top.scrollFactor.set(0, 0);
+			add(top);
+
+			bottom = new FlxSprite(0, 720).makeGraphic(FlxG.width, 100, FlxColor.BLACK);
+			bottom.screenCenter(X);
+			bottom.cameras = [camOther];
+			bottom.scrollFactor.set(0, 0);
+			add(bottom);
+
+			FlxTween.tween(top, {y: 620}, 2, {ease: FlxEase.circInOut});
+			FlxTween.tween(bottom, {y: -15}, 2, {ease: FlxEase.circInOut});
+		}
+		else
+		{
+			CinematicBars = false;
+
+			if (top != null)
+			{
+				FlxTween.tween(top, {y: -100}, 1.5, {ease: FlxEase.circInOut});
+			}
+
+			if (bottom != null)
+			{
+				FlxTween.tween(bottom, {y: 720}, 1.5, {ease: FlxEase.circInOut});
+			}
+		}
+	}
          
         /*function removeCinematicBars(speed:Float)
             {
