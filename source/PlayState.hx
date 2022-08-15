@@ -4638,8 +4638,8 @@ class PlayState extends MusicBeatState
 				CinematicBottom.y = -115;
 				add(CinematicBottom);
 			
-			FlxTween.tween(CinematicTop, {y: CinematicTop.y + 620}, 2, {ease: FlxEase.circInOut});
-			FlxTween.tween(CinematicBottom, {y: CinematicBottom.y - 15}, 2, {ease: FlxEase.circInOut});
+			FlxTween.tween(CinematicTop, {y: 620}, 2, {ease: FlxEase.circInOut});
+			FlxTween.tween(CinematicBottom, {y: -15}, 2, {ease: FlxEase.circInOut});
 		}
 		else
 		{
@@ -4647,12 +4647,12 @@ class PlayState extends MusicBeatState
 
 			if (CinematicTop != null)
 			{
-				FlxTween.tween(CinematicTop, {y: CinematicTop.y + 720}, 2, {ease: FlxEase.quadInOut});
+				FlxTween.tween(CinematicTop, {y: 720}, 2, {ease: FlxEase.quadInOut});
 			}
 
 			if (CinematicBottom != null)
 			{
-				FlxTween.tween(CinematicBottom, {y: CinematicBottom.y - 115}, 2, {ease: FlxEase.quadInOut});
+				FlxTween.tween(CinematicBottom, {y: -115}, 2, {ease: FlxEase.quadInOut});
 			}
 		}
 	}
