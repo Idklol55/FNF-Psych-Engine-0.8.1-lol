@@ -191,7 +191,7 @@ class PlayState extends MusicBeatState
 	public var iconP2:HealthIcon;
 	public var camHUD:FlxCamera;
 	public var camGame:FlxCamera;
-	private var camOVERLAY:FlxCamera;
+	private var camBars:FlxCamera;
 	public var camOther:FlxCamera;
 	public var cameraSpeed:Float = 1;
 
@@ -320,14 +320,14 @@ class PlayState extends MusicBeatState
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
 		camHUD = new FlxCamera();
-		camOVERLAY = new FlxCamera();
+		camBars = new FlxCamera();
 		camOther = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
-		camOVERLAY.bgColor.alpha = 0;
+		camBars.bgColor.alpha = 0;
 		camOther.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
-		FlxG.cameras.add(camOVERLAY);
+		FlxG.cameras.add(camBars);
 		FlxG.cameras.add(camHUD);
 		FlxG.cameras.add(camOther);
 		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
@@ -4272,9 +4272,8 @@ class PlayState extends MusicBeatState
 					case 120:
                        addCinematicBars();
 					case 230:
-					   //FlxTween.tween(this, {barSongLength: songLength,}, 3);
 						addCinematicBars();
-					    FlxTween.tween(this, {barSongLength: songLength,}, 8, {ease: FlxEase.circInOut});
+					    FlxTween.tween(this, {barSongLength: songLength,}, 10, {ease: FlxEase.circInOut});
 						FlxTween.tween(healthBarBG, {alpha: 0}, 2, {ease: FlxEase.linear});
 						FlxTween.tween(healthBar, {alpha: 0}, 2, {ease: FlxEase.linear});
 						FlxTween.tween(iconP1, {alpha: 0}, 2, {ease: FlxEase.linear});
@@ -4625,26 +4624,20 @@ class PlayState extends MusicBeatState
 		{
 			CinematicBars = true;
 			
-			if (CinematicTop = null)
-			{
 				CinematicTop = new FlxSprite(0, -100).makeGraphic(FlxG.width, 100, FlxColor.BLACK);
 				CinematicTop.screenCenter(X);
-				CinematicTop.cameras = [camOVERLAY];
+				CinematicTop.cameras = [camBars];
 				CinematicTop.scrollFactor.set(0, 0);
 				CinematicTop.y = 720;
 				add(CinematicTop);
-			}
-
-			if (CinematicBottom = null)
-			{
+			
 				CinematicBottom = new FlxSprite(0, 720).makeGraphic(FlxG.width, 100, FlxColor.BLACK);
 				CinematicBottom.screenCenter(X);
-				CinematicBottom.cameras = [camOVERLAY];
+				CinematicBottom.cameras = [camBars];
 				CinematicBottom.scrollFactor.set(0, 0);
 				CinematicBottom.y = -115;
 				add(CinematicBottom);
-			}
-
+			
 			FlxTween.tween(CinematicTop, {y: CinematicTop + 620}, 2, {ease: FlxEase.circInOut});
 			FlxTween.tween(CinematicBottom, {y: CinematicBottom - 15}, 2, {ease: FlxEase.circInOut});
 		}
