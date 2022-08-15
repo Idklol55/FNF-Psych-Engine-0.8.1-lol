@@ -252,8 +252,8 @@ class PlayState extends MusicBeatState
 	var songLength:Float = 0;
 	var barSongLength:Float = 0;
 	
-	var top:FlxSprite;
-	var bottom:FlxSprite;
+	var CinematicTop:FlxSprite;
+	var CinematicBottom:FlxSprite;
 	var CinematicBars:Bool = false;
 	
 	#if desktop
