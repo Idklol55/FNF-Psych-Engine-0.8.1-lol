@@ -4625,20 +4625,28 @@ class PlayState extends MusicBeatState
 		{
 			CinematicBars = true;
 			
-			CinematicTop = new FlxSprite(0, -100).makeGraphic(FlxG.width, 100, FlxColor.BLACK);
-			CinematicTop.screenCenter(X);
-			CinematicTop.cameras = [camOVERLAY];
-			CinematicTop.scrollFactor.set(0, 0);
-			add(CinematicTop);
+			if (CinematicTop = null)
+			{
+				CinematicTop = new FlxSprite(0, -100).makeGraphic(FlxG.width, 100, FlxColor.BLACK);
+				CinematicTop.screenCenter(X);
+				CinematicTop.cameras = [camOVERLAY];
+				CinematicTop.scrollFactor.set(0, 0);
+				CinematicTop.y = 720;
+				add(CinematicTop);
+			}
 
-			CinematicBottom = new FlxSprite(0, 720).makeGraphic(FlxG.width, 100, FlxColor.BLACK);
-			CinematicBottom.screenCenter(X);
-			CinematicBottom.cameras = [camOVERLAY];
-			CinematicBottom.scrollFactor.set(0, 0);
-			add(CinematicBottom);
+			if (CinematicBottom = null)
+			{
+				CinematicBottom = new FlxSprite(0, 720).makeGraphic(FlxG.width, 100, FlxColor.BLACK);
+				CinematicBottom.screenCenter(X);
+				CinematicBottom.cameras = [camOVERLAY];
+				CinematicBottom.scrollFactor.set(0, 0);
+				CinematicBottom.y = -115;
+				add(CinematicBottom);
+			}
 
-			FlxTween.tween(CinematicTop, {y: CinematicTop.y + 620}, 2, {ease: FlxEase.circInOut});
-			FlxTween.tween(CinematicBottom, {y: CinematicBottom.y - 15}, 2, {ease: FlxEase.circInOut});
+			FlxTween.tween(CinematicTop, {y: CinematicTop + 620}, 2, {ease: FlxEase.circInOut});
+			FlxTween.tween(CinematicBottom, {y: CinematicBottom - 15}, 2, {ease: FlxEase.circInOut});
 		}
 		else
 		{
@@ -4646,12 +4654,12 @@ class PlayState extends MusicBeatState
 
 			if (CinematicTop != null)
 			{
-				FlxTween.tween(CinematicTop, {y: CinematicTop.y - 100}, 2, {ease: FlxEase.quadInOut});
+				FlxTween.tween(CinematicTop, {y: CinematicTop + 720}, 2, {ease: FlxEase.quadInOut});
 			}
 
 			if (CinematicBottom != null)
 			{
-				FlxTween.tween(CinematicBottom, {y: CinematicBottom.y + 720}, 2, {ease: FlxEase.quadInOut});
+				FlxTween.tween(CinematicBottom, {y: CinematicBottom - 115}, 2, {ease: FlxEase.quadInOut});
 			}
 		}
 	}
