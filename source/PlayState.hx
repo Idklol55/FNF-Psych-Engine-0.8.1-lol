@@ -4282,6 +4282,8 @@ class PlayState extends MusicBeatState
 						for (i in opponentStrums) {
 							FlxTween.tween(i, {alpha: 0}, 2, {ease: FlxEase.linear});
 						}
+					case 260:
+						addCinematicBars();
 					}
 			}
 		setOnLuas('curStep', curStep);
@@ -4638,8 +4640,8 @@ class PlayState extends MusicBeatState
 				CinematicBottom.y = -115;
 				add(CinematicBottom);
 			
-			FlxTween.tween(CinematicTop, {y: 620}, 2, {ease: FlxEase.circInOut});
-			FlxTween.tween(CinematicBottom, {y: -15}, 2, {ease: FlxEase.circInOut});
+			FlxTween.tween(CinematicTop, {y: 620}, 1.5, {ease: FlxEase.circInOut});
+			FlxTween.tween(CinematicBottom, {y: -15}, 1.5, {ease: FlxEase.circInOut});
 		}
 		else
 		{
@@ -4647,12 +4649,12 @@ class PlayState extends MusicBeatState
 
 			if (CinematicTop != null)
 			{
-				FlxTween.tween(CinematicTop, {y: 720}, 2, {ease: FlxEase.quadInOut});
+				FlxTween.tween(CinematicTop, {y: 720}, 1.5, {ease: FlxEase.quadInOut});
 			}
 
 			if (CinematicBottom != null)
 			{
-				FlxTween.tween(CinematicBottom, {y: -115}, 2, {ease: FlxEase.quadInOut});
+				FlxTween.tween(CinematicBottom, {y: -115}, 1.5, {ease: FlxEase.quadInOut});
 			}
 		}
 	}
