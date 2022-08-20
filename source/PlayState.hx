@@ -690,6 +690,16 @@ class PlayState extends MusicBeatState
 					bg.antialiasing = false;
 					add(bg);
 				case 'starved-pixel':
+					{
+						"directory": "",
+						"defaultZoom": 0.6,
+						"isPixelStage": true,
+
+						"boyfriend": [770, 100],
+						"girlfriend": [400, 130],
+						"opponent": [100, 100]
+					}
+					
 					for (i in 0...2)
 					{
 						var StarvedBG:BGSprite = new BGSprite('weeb/bgGhouls', -600 + (4608 * i), -1100);
@@ -708,7 +718,7 @@ class PlayState extends MusicBeatState
 			introSoundsSuffix = '-pixel';
 		}
 		
-		StageData.getStageFile.set("starved-pixel", new StageData({
+		/*StageData.getStageFile.set("starved-pixel", new StageData({
 				directory: "",
 				defaultZoom: 0.9,
 				isPixelStage: true,
@@ -717,7 +727,7 @@ class PlayState extends MusicBeatState
 				girlfriend: [400, 130],
 				opponent: [100, 100]
 			}));
-		}
+		}*/
 
 		add(gfGroup);
 
