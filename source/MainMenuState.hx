@@ -91,7 +91,7 @@ class MainMenuState extends MusicBeatState
 		magenta.color = 0xFFfd719b;
 		add(magenta);
 
-		characters = new FlxSprite(10 + ( 460 * what), 20);
+		characters = new FlxSprite(10 + ( 460 what), 20);
 		characters.frames = Paths.getSparrowAtlas('menuCharacters');
 		characters.antialiasing = ClientPrefs.globalAntialiasing;
 		characters.setGraphicSize(Std.int(characters.width * 1.1));
