@@ -689,6 +689,8 @@ class PlayState extends MusicBeatState
 					bg.scale.set(6, 6);
 					bg.antialiasing = false;
 					add(bg);
+				}
+				
 				case 'starved-pixel':
 					{
 						"directory": "",
