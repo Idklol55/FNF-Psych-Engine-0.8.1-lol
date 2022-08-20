@@ -402,7 +402,7 @@ class PlayState extends MusicBeatState
 			};
 		}
 		
-		StageData.set("starved-pixel", new StageData({
+		StageData.getStageFile.set("starved-pixel", new StageData({
 				directory: "",
 				defaultZoom: 0.9,
 				isPixelStage: true,
