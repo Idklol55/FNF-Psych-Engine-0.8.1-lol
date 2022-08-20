@@ -713,7 +713,6 @@ class PlayState extends MusicBeatState
 						/*if (songName == 'roses' || curBeat < 32
 						StarvedBG.visible = false;
 						StarvedGround.visible = false;*/
-					}
 				}
 		}
 
