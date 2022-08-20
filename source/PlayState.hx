@@ -401,6 +401,17 @@ class PlayState extends MusicBeatState
 				opponent: [100, 100]
 			};
 		}
+		
+		StageData.set("starved-pixel", new StageData({
+				directory: "",
+				defaultZoom: 0.9,
+				isPixelStage: true,
+			
+				boyfriend: [770, 100],
+				girlfriend: [400, 130],
+				opponent: [100, 100]
+			}));
+		}
 
 		defaultCamZoom = stageData.defaultZoom;
 		isPixelStage = stageData.isPixelStage;
@@ -689,6 +700,18 @@ class PlayState extends MusicBeatState
 					bg.scale.set(6, 6);
 					bg.antialiasing = false;
 					add(bg);
+				case 'starved-pixel':
+					for (i in 0...2)
+					{
+						var StarvedBG:BGSprite = new BGSprite('weeb/bgGhouls', -600 + (4608 * i), -1100);
+						add(StarvedBG);
+						
+						var StarvedGround:BGSprite = new BGSprite('weeb/bgGhouls', -600 + (4608 * i), -1100);
+						add(StarvedGround);
+						
+						if (songName == 'roses' || if (curBeat < 32)
+						StarvedBG.visible = false;
+						StarvedGround.visible = false;
 				}
 		}
 
