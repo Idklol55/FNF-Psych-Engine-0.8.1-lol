@@ -710,9 +710,10 @@ class PlayState extends MusicBeatState
 						var StarvedGround:BGSprite = new BGSprite('weeb/bgGhouls', -600 + (4608 * i), -1100);
 						add(StarvedGround);
 						
-						if (songName == 'roses' || if (curBeat < 32)
+						/*if (songName == 'roses' || curBeat < 32
 						StarvedBG.visible = false;
-						StarvedGround.visible = false;
+						StarvedGround.visible = false;*/
+					}
 				}
 		}
 
