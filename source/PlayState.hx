@@ -401,17 +401,6 @@ class PlayState extends MusicBeatState
 				opponent: [100, 100]
 			};
 		}
-		
-		StageData.getStageFile.set("starved-pixel", new StageData({
-				directory: "",
-				defaultZoom: 0.9,
-				isPixelStage: true,
-			
-				boyfriend: [770, 100],
-				girlfriend: [400, 130],
-				opponent: [100, 100]
-			}));
-		}
 
 		defaultCamZoom = stageData.defaultZoom;
 		isPixelStage = stageData.isPixelStage;
@@ -717,6 +706,17 @@ class PlayState extends MusicBeatState
 
 		if(isPixelStage) {
 			introSoundsSuffix = '-pixel';
+		}
+		
+		StageData.getStageFile.set("starved-pixel", new StageData({
+				directory: "",
+				defaultZoom: 0.9,
+				isPixelStage: true,
+			
+				boyfriend: [770, 100],
+				girlfriend: [400, 130],
+				opponent: [100, 100]
+			}));
 		}
 
 		add(gfGroup);
