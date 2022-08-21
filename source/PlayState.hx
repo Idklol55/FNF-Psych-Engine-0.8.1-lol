@@ -256,8 +256,8 @@ class PlayState extends MusicBeatState
 	var CinematicTop:FlxSprite;
 	var CinematicBottom:FlxSprite;
 	var CinematicBars:Bool = false;
-	var stardustBg:FlxBackdrop;
-	var stardustFloor:FlxBackdrop;
+	var StarvedBG:FlxBackdrop;
+	var StarvedGround:FlxBackdrop;
 	
 	#if desktop
 	// Discord RPC variables
@@ -588,15 +588,15 @@ class PlayState extends MusicBeatState
 				CoolUtil.precacheSound('Lights_Shut_off');
 				
 			case 'starved-pixel':
-					stardustBg = new FlxBackdrop(Paths.image('starved/stardustBg', 'exe'), 0.1, 0.1);
-					stardustBg.velocity.set(-10, 0);
-					stardustBg.scale.set(6, 6);
-					add(stardustBg);
+					StarvedBG = new FlxBackdrop(Paths.image('images/starved/stardustBg', 'exe'), 0.1, 0.1);
+					StarvedBG.velocity.set(-10, 0);
+					StarvedBG.scale.set(6, 6);
+					add(StarvedBG);
 					
-					stardustFloor = new FlxBackdrop(Paths.image('starved/stardustFloor', 'exe'), 0.1, 0.1);
-					stardustFloor.velocity.set(-10, 0);
-					stardustFloor.scale.set(6, 6);
-					add(stardustFloor);
+					StarvedGround = new FlxBackdrop(Paths.image('images/starved/stardustFloor', 'exe'), 0.1, 0.1);
+					StarvedGround.velocity.set(-10, 0);
+					StarvedGround.scale.set(6, 6);
+					add(StarvedGround);
 
 			case 'school': //Week 6 - Senpai, Roses
 				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
@@ -4622,6 +4622,7 @@ class PlayState extends MusicBeatState
 	}
 	#end
 	
+	//I don't know what to tell
 	function addCinematicBars()
 	{
 		if (!CinematicBars)
