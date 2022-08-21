@@ -421,7 +421,7 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'stage': //Week 1
-				var bg:FlxBackdrop = new FlxBackdrop('starved/stardustBg'), 0, 0, true, false);
+				var bg:FlxBackdrop = new FlxBackdrop('starved/stardustBg'), 0.1, 0.1);
 				bg.x = -600;
 				bg.y = -200;
 				bg.velocity.set(100, 0);
