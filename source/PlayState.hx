@@ -591,11 +591,15 @@ class PlayState extends MusicBeatState
 					StarvedBG = new FlxBackdrop(Paths.image('images/starved/stardustBg', 'exe'), 0.1, 0.1);
 					StarvedBG.velocity.set(-10, 0);
 					StarvedBG.scale.set(6, 6);
+					StarvedBG.y = -600;
+					StarvedBGx = -1100;
 					add(StarvedBG);
 					
 					StarvedGround = new FlxBackdrop(Paths.image('images/starved/stardustFloor', 'exe'), 0.1, 0.1);
 					StarvedGround.velocity.set(-10, 0);
 					StarvedGround.scale.set(6, 6);
+					StarvedGround.y = -600;
+					StarvedGround.x = -1465; //test first
 					add(StarvedGround);
 
 			case 'school': //Week 6 - Senpai, Roses
