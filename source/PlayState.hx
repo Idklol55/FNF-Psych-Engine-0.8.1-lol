@@ -592,7 +592,7 @@ class PlayState extends MusicBeatState
 					StarvedBG.velocity.set(-10, 0);
 					StarvedBG.scale.set(6, 6);
 					StarvedBG.y = -600;
-					StarvedBGx = -1100;
+					StarvedBG.x = -1100;
 					add(StarvedBG);
 					
 					StarvedGround = new FlxBackdrop(Paths.image('images/starved/stardustFloor', 'exe'), 0.1, 0.1);
