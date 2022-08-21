@@ -4283,9 +4283,9 @@ class PlayState extends MusicBeatState
 				switch (curStep)
 					{
 					case 120:
-						CinematicBars();
+						addCinematicBars();
 					case 230:
-						CinematicBars();
+						addCinematicBars();
 					    FlxTween.tween(this, {barSongLength: songLength,}, 10, {ease: FlxEase.circInOut});
 						FlxTween.tween(healthBarBG, {alpha: 0}, 2, {ease: FlxEase.linear});
 						FlxTween.tween(healthBar, {alpha: 0}, 2, {ease: FlxEase.linear});
@@ -4296,7 +4296,7 @@ class PlayState extends MusicBeatState
 							FlxTween.tween(i, {alpha: 0}, 2, {ease: FlxEase.linear});
 						}
 					case 260:
-						CinematicBars();
+						addCinematicBars();
 					}
 			}
 		setOnLuas('curStep', curStep);
@@ -4633,7 +4633,7 @@ class PlayState extends MusicBeatState
 	}
 	#end
 	
-	function CinematicBars()
+	function addCinematicBars()
 	{
 		if (CinematicBars)
 		{
