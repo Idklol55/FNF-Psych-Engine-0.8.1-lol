@@ -697,12 +697,15 @@ class PlayState extends MusicBeatState
 			case 'starved-pixel':
 					stardustBg = new FlxBackdrop(Paths.image('starved/stardustBg', 'exe'), 0.1, 0.1);
 					stardustBg.velocity.set(-10, 0);
+					stardustBg.scale.set(6, 6);
 					add(stardustBg);
 					
 					stardustFloor = new FlxBackdrop(Paths.image('starved/stardustFloor', 'exe'), 0.1, 0.1);
 					stardustFloor.velocity.set(-10, 0);
 					stardustFloor.updateHitbox();
+					stardustFloor.scale.set(6, 6);
 					add(stardustFloor);
+				}
 		}
 
 		if(isPixelStage) {
@@ -4635,7 +4638,7 @@ class PlayState extends MusicBeatState
 	
 	function addCinematicBars()
 	{
-		if (CinematicBars)
+		if (!CinematicBars)
 		{
 			CinematicBars = true;
 			
