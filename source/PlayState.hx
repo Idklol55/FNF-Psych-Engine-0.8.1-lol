@@ -694,7 +694,7 @@ class PlayState extends MusicBeatState
 					add(bg);
 				}
 				
-			case 'starved-pixel':
+				case 'starved-pixel':
 					stardustBg = new FlxBackdrop(Paths.image('starved/stardustBg', 'exe'), 0.1, 0.1);
 					stardustBg.velocity.set(-10, 0);
 					add(stardustBg);
@@ -4284,9 +4284,9 @@ class PlayState extends MusicBeatState
 				switch (curStep)
 					{
 					case 120:
-                       addCinematicBars();
+						CinematicBars();
 					case 230:
-						addCinematicBars();
+						CinematicBars();
 					    FlxTween.tween(this, {barSongLength: songLength,}, 10, {ease: FlxEase.circInOut});
 						FlxTween.tween(healthBarBG, {alpha: 0}, 2, {ease: FlxEase.linear});
 						FlxTween.tween(healthBar, {alpha: 0}, 2, {ease: FlxEase.linear});
@@ -4297,7 +4297,7 @@ class PlayState extends MusicBeatState
 							FlxTween.tween(i, {alpha: 0}, 2, {ease: FlxEase.linear});
 						}
 					case 260:
-						addCinematicBars();
+						CinematicBars();
 					}
 			}
 		setOnLuas('curStep', curStep);
@@ -4634,7 +4634,7 @@ class PlayState extends MusicBeatState
 	}
 	#end
 	
-	function addCinematicBars()
+	function CinematicBars()
 	{
 		if (CinematicBars = null)
 		{
