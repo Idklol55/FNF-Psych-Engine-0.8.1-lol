@@ -421,12 +421,7 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'stage': //Week 1
-				var bg:FlxBackdrop = new FlxBackdrop('starved/stardustBg'), 0.1, 0.1);
-				bg.x = -600;
-				bg.y = -200;
-				bg.velocity.set(100, 0);
-				bg.scale.set(0.9, 0.9);
-				//var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
+				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 				add(bg);
 
 				var stageFront:BGSprite = new BGSprite('stagefront', -650, 600, 0.9, 0.9);
@@ -593,15 +588,19 @@ class PlayState extends MusicBeatState
 				CoolUtil.precacheSound('Lights_Shut_off');
 				
 			case 'starved-pixel':
-					StarvedBG = new FlxBackdrop('starved/stardustBg'), 0, 0, true, false);
-					StarvedBG.velocity.set(100, 0);
-					StarvedBG.scale.set(6, 6);
-					add(StarvedBG);
-					
-					StarvedGround = new FlxBackdrop('starved/stardustFloor'), 0, 0, true, false);
-					StarvedGround.velocity.set(100, 0);
-					StarvedGround.scale.set(6, 6);
-					add(StarvedGround);
+				/*defaultCamZoom = 0.6;
+				isPixelStage = true;
+				showCountdown = false;*/
+
+				StarvedBG = new FlxBackdrop(Paths.getSparrowAtlas('starved/stardustBg', 'exe'), 0.1, 0.1);
+				StarvedBG.velocity.set(100, 0);
+				StarvedBG.scale.set(6, 6);
+				add(StarvedBG);
+				
+				StarvedGround = new FlxBackdrop(Paths.getSparrowAtlas('starved/stardustFloor', 'exe'), 0.1, 0.1);
+				StarvedGround.velocity.set(100, 0);
+				StarvedGround.scale.set(6, 6);
+				add(StarvedGround);
 
 			case 'school': //Week 6 - Senpai, Roses
 				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
