@@ -418,7 +418,8 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'stage': //Week 1
-				var gameWidth:Int = 916;
+				var gameWidth:Int = 920;
+				setupGame();
 
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 				add(bg);
@@ -694,9 +695,9 @@ class PlayState extends MusicBeatState
 				}
 				
 				case 'starved-pixel':
-					{
+				StageData.getStageFile.set("starved-pixel", new StageData({
 						"directory": "",
-						"defaultZoom": 0.6,
+						"defaultZoom": 1,
 						"isPixelStage": true,
 
 						"boyfriend": [770, 100],
@@ -4659,7 +4660,7 @@ class PlayState extends MusicBeatState
 	
 	function addCinematicBars()
 	{
-		if (!CinematicBars)
+		if (CinematicBars = null)
 		{
 			CinematicBars = true;
 			
