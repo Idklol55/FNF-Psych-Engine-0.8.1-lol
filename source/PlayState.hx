@@ -4636,7 +4636,7 @@ class PlayState extends MusicBeatState
 	
 	function addCinematicBars()
 	{
-		if (!CinematicBars)
+		if (CinematicBars)
 		{
 			CinematicBars = true;
 			
