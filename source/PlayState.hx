@@ -694,7 +694,7 @@ class PlayState extends MusicBeatState
 					add(bg);
 				}
 				
-				case 'starved-pixel':
+			case 'starved-pixel':
 					stardustBg = new FlxBackdrop(Paths.image('starved/stardustBg', 'exe'), 0.1, 0.1);
 					stardustBg.velocity.set(-10, 0);
 					add(stardustBg);
@@ -4636,7 +4636,7 @@ class PlayState extends MusicBeatState
 	
 	function CinematicBars()
 	{
-		if (CinematicBars = null)
+		if (CinematicBars)
 		{
 			CinematicBars = true;
 			
