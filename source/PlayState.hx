@@ -703,7 +703,6 @@ class PlayState extends MusicBeatState
 					stardustFloor.velocity.set(-10, 0);
 					stardustFloor.updateHitbox();
 					add(stardustFloor);
-				}
 		}
 
 		if(isPixelStage) {
