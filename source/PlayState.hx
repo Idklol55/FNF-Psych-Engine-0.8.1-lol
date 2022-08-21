@@ -15,6 +15,7 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.FlxSubState;
+import flixel.addons.display.FlxBackdrop;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.effects.FlxTrail;
 import flixel.addons.effects.FlxTrailArea;
@@ -255,6 +256,8 @@ class PlayState extends MusicBeatState
 	var CinematicTop:FlxSprite;
 	var CinematicBottom:FlxSprite;
 	var CinematicBars:Bool = false;
+	var stardustBg:FlxBackdrop;
+	var stardustFloor:FlxBackdrop;
 	
 	#if desktop
 	// Discord RPC variables
@@ -418,9 +421,6 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'stage': //Week 1
-				var gameWidth:Int = 920;
-				setupGame();
-
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 				add(bg);
 
@@ -694,45 +694,21 @@ class PlayState extends MusicBeatState
 					add(bg);
 				}
 				
-				case 'starved-pixel':
-				StageData.getStageFile.set("starved-pixel", new StageData({
-						"directory": "",
-						"defaultZoom": 1,
-						"isPixelStage": true,
-
-						"boyfriend": [770, 100],
-						"girlfriend": [400, 130],
-						"opponent": [100, 100]
-					}
+			case 'starved-pixel':
+					stardustBg = new FlxBackdrop(Paths.image('starved/stardustBg', 'exe'), 0.1, 0.1);
+					stardustBg.velocity.set(-10, 0);
+					add(stardustBg);
 					
-					for (i in 0...2)
-					{
-						var StarvedBG:BGSprite = new BGSprite('weeb/bgGhouls', -600 + (4608 * i), -1100);
-						add(StarvedBG);
-						
-						var StarvedGround:BGSprite = new BGSprite('weeb/bgGhouls', -600 + (4608 * i), -1100);
-						add(StarvedGround);
-						
-						/*if (songName == 'roses' || curBeat < 32
-						StarvedBG.visible = false;
-						StarvedGround.visible = false;*/
+					stardustFloor = new FlxBackdrop(Paths.image('starved/stardustFloor', 'exe'), 0.1, 0.1);
+					stardustFloor.velocity.set(-10, 0);
+					stardustFloor.updateHitbox();
+					add(stardustFloor);
 				}
 		}
 
 		if(isPixelStage) {
 			introSoundsSuffix = '-pixel';
 		}
-		
-		/*StageData.getStageFile.set("starved-pixel", new StageData({
-				directory: "",
-				defaultZoom: 0.9,
-				isPixelStage: true,
-			
-				boyfriend: [770, 100],
-				girlfriend: [400, 130],
-				opponent: [100, 100]
-			}));
-		}*/
 
 		add(gfGroup);
 
@@ -4660,7 +4636,7 @@ class PlayState extends MusicBeatState
 	
 	function addCinematicBars()
 	{
-		if (CinematicBars = null)
+		if (!CinematicBars)
 		{
 			CinematicBars = true;
 			
