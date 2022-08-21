@@ -586,18 +586,17 @@ class PlayState extends MusicBeatState
 				santa = new BGSprite('christmas/santa', -840, 150, 1, 1, ['santa idle in fear']);
 				add(santa);
 				CoolUtil.precacheSound('Lights_Shut_off');
-
-			case 'mallEvil': //Week 5 - Winter Horrorland
-				var bg:BGSprite = new BGSprite('christmas/evilBG', -400, -500, 0.2, 0.2);
-				bg.setGraphicSize(Std.int(bg.width * 0.8));
-				bg.updateHitbox();
-				add(bg);
-
-				var evilTree:BGSprite = new BGSprite('christmas/evilTree', 300, -300, 0.2, 0.2);
-				add(evilTree);
-
-				var evilSnow:BGSprite = new BGSprite('christmas/evilSnow', -200, 700);
-				add(evilSnow);
+				
+			case 'starved-pixel':
+					stardustBg = new FlxBackdrop(Paths.image('starved/stardustBg', 'exe'), 0.1, 0.1);
+					stardustBg.velocity.set(-10, 0);
+					stardustBg.scale.set(6, 6);
+					add(stardustBg);
+					
+					stardustFloor = new FlxBackdrop(Paths.image('starved/stardustFloor', 'exe'), 0.1, 0.1);
+					stardustFloor.velocity.set(-10, 0);
+					stardustFloor.scale.set(6, 6);
+					add(stardustFloor);
 
 			case 'school': //Week 6 - Senpai, Roses
 				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
@@ -693,18 +692,6 @@ class PlayState extends MusicBeatState
 					bg.antialiasing = false;
 					add(bg);
 				}
-				
-			case 'starved-pixel':
-					stardustBg = new FlxBackdrop(Paths.image('starved/stardustBg', 'exe'), 0.1, 0.1);
-					stardustBg.velocity.set(-10, 0);
-					stardustBg.scale.set(6, 6);
-					add(stardustBg);
-					
-					stardustFloor = new FlxBackdrop(Paths.image('starved/stardustFloor', 'exe'), 0.1, 0.1);
-					stardustFloor.velocity.set(-10, 0);
-					stardustFloor.updateHitbox();
-					stardustFloor.scale.set(6, 6);
-					add(stardustFloor);
 		}
 
 		if(isPixelStage) {
