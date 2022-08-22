@@ -589,17 +589,19 @@ class PlayState extends MusicBeatState
 				
 			case 'starved-pixel':
 				/*defaultCamZoom = 0.6;
-				isPixelStage = true;
-				showCountdown = false;*/
+				isPixelStage = true;*/
+				showCountdown = false;
 
 				StarvedBG = new FlxBackdrop(Paths.image('starved/stardustBg', 'exe'), 0.1, 0.1);
 				StarvedBG.velocity.set(100, 0);
 				StarvedBG.scale.set(6, 6);
+				StarvedBG.cameras = [camBars];
 				add(StarvedBG);
 				
 				StarvedGround = new FlxBackdrop(Paths.image('starved/stardustFloor', 'exe'), 0.1, 0.1);
 				StarvedGround.velocity.set(100, 0);
 				StarvedGround.scale.set(6, 6);
+				StarvedGround.cameras = [camBars];
 				add(StarvedGround);
 
 			case 'school': //Week 6 - Senpai, Roses
