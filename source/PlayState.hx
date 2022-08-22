@@ -455,164 +455,6 @@ class PlayState extends MusicBeatState
 					add(stageCurtains);
 				}
 
-			case 'spooky': //Week 2
-				if(!ClientPrefs.lowQuality) {
-					halloweenBG = new BGSprite('halloween_bg', -200, -100, ['halloweem bg0', 'halloweem bg lightning strike']);
-				} else {
-					halloweenBG = new BGSprite('halloween_bg_low', -200, -100);
-				}
-				add(halloweenBG);
-
-				halloweenWhite = new BGSprite(null, -FlxG.width, -FlxG.height, 0, 0);
-				halloweenWhite.makeGraphic(Std.int(FlxG.width * 3), Std.int(FlxG.height * 3), FlxColor.WHITE);
-				halloweenWhite.alpha = 0;
-				halloweenWhite.blend = ADD;
-
-				//PRECACHE SOUNDS
-				CoolUtil.precacheSound('thunder_1');
-				CoolUtil.precacheSound('thunder_2');
-
-			case 'philly': //Week 3
-				if(!ClientPrefs.lowQuality) {
-					var bg:BGSprite = new BGSprite('philly/sky', -100, 0, 0.1, 0.1);
-					add(bg);
-				}
-				
-				//addShaderToCamera('game', chromAb);
-				//chromAb.setChrome(0.01);
-
-				var city:BGSprite = new BGSprite('philly/city', -10, 0, 0.3, 0.3);
-				city.setGraphicSize(Std.int(city.width * 0.85));
-				city.updateHitbox();
-				add(city);
-
-				phillyCityLights = new FlxTypedGroup<BGSprite>();
-				add(phillyCityLights);
-
-				for (i in 0...5)
-				{
-					var light:BGSprite = new BGSprite('philly/win' + i, city.x, city.y, 0.3, 0.3);
-					light.visible = false;
-					light.setGraphicSize(Std.int(light.width * 0.85));
-					light.updateHitbox();
-					phillyCityLights.add(light);
-				}
-
-				if(!ClientPrefs.lowQuality) {
-					var streetBehind:BGSprite = new BGSprite('philly/behindTrain', -40, 50);
-					add(streetBehind);
-				}
-
-				phillyTrain = new BGSprite('philly/train', 2000, 360);
-				add(phillyTrain);
-
-				trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
-				CoolUtil.precacheSound('train_passes');
-				FlxG.sound.list.add(trainSound);
-
-				var street:BGSprite = new BGSprite('philly/street', -40, 50);
-				add(street);
-
-			case 'limo': //Week 4
-				var skyBG:BGSprite = new BGSprite('limo/limoSunset', -120, -50, 0.1, 0.1);
-				add(skyBG);
-
-				if(!ClientPrefs.lowQuality) {
-					limoMetalPole = new BGSprite('gore/metalPole', -500, 220, 0.4, 0.4);
-					add(limoMetalPole);
-
-					bgLimo = new BGSprite('limo/bgLimo', -150, 480, 0.4, 0.4, ['background limo pink'], true);
-					add(bgLimo);
-
-					limoCorpse = new BGSprite('gore/noooooo', -500, limoMetalPole.y - 130, 0.4, 0.4, ['Henchmen on rail'], true);
-					add(limoCorpse);
-
-					limoCorpseTwo = new BGSprite('gore/noooooo', -500, limoMetalPole.y, 0.4, 0.4, ['henchmen death'], true);
-					add(limoCorpseTwo);
-
-					grpLimoDancers = new FlxTypedGroup<BackgroundDancer>();
-					add(grpLimoDancers);
-
-					for (i in 0...5)
-					{
-						var dancer:BackgroundDancer = new BackgroundDancer((370 * i) + 130, bgLimo.y - 400);
-						dancer.scrollFactor.set(0.4, 0.4);
-						grpLimoDancers.add(dancer);
-					}
-
-					limoLight = new BGSprite('gore/coldHeartKiller', limoMetalPole.x - 180, limoMetalPole.y - 80, 0.4, 0.4);
-					add(limoLight);
-
-					grpLimoParticles = new FlxTypedGroup<BGSprite>();
-					add(grpLimoParticles);
-
-					//PRECACHE BLOOD
-					var particle:BGSprite = new BGSprite('gore/stupidBlood', -400, -400, 0.4, 0.4, ['blood'], false);
-					particle.alpha = 0.01;
-					grpLimoParticles.add(particle);
-					resetLimoKill();
-
-					//PRECACHE SOUND
-					CoolUtil.precacheSound('dancerdeath');
-				}
-
-				limo = new BGSprite('limo/limoDrive', -120, 550, 1, 1, ['Limo stage'], true);
-
-				fastCar = new BGSprite('limo/fastCarLol', -300, 160);
-				fastCar.active = true;
-				limoKillingState = 0;
-
-			case 'mall': //Week 5 - Cocoa, Eggnog
-				var bg:BGSprite = new BGSprite('christmas/bgWalls', -1000, -500, 0.2, 0.2);
-				bg.setGraphicSize(Std.int(bg.width * 0.8));
-				bg.updateHitbox();
-				add(bg);
-
-				if(!ClientPrefs.lowQuality) {
-					upperBoppers = new BGSprite('christmas/upperBop', -240, -90, 0.33, 0.33, ['Upper Crowd Bob']);
-					upperBoppers.setGraphicSize(Std.int(upperBoppers.width * 0.85));
-					upperBoppers.updateHitbox();
-					add(upperBoppers);
-
-					var bgEscalator:BGSprite = new BGSprite('christmas/bgEscalator', -1100, -600, 0.3, 0.3);
-					bgEscalator.setGraphicSize(Std.int(bgEscalator.width * 0.9));
-					bgEscalator.updateHitbox();
-					add(bgEscalator);
-				}
-
-				var tree:BGSprite = new BGSprite('christmas/christmasTree', 370, -250, 0.40, 0.40);
-				add(tree);
-
-				bottomBoppers = new BGSprite('christmas/bottomBop', -300, 140, 0.9, 0.9, ['Bottom Level Boppers Idle']);
-				bottomBoppers.animation.addByPrefix('hey', 'Bottom Level Boppers HEY', 24, false);
-				bottomBoppers.setGraphicSize(Std.int(bottomBoppers.width * 1));
-				bottomBoppers.updateHitbox();
-				add(bottomBoppers);
-
-				var fgSnow:BGSprite = new BGSprite('christmas/fgSnow', -600, 700);
-				add(fgSnow);
-
-				santa = new BGSprite('christmas/santa', -840, 150, 1, 1, ['santa idle in fear']);
-				add(santa);
-				CoolUtil.precacheSound('Lights_Shut_off');
-				
-			case 'starved-pixel':
-				/*defaultCamZoom = 0.6;
-				isPixelStage = true;*/
-				showCountdown = false;
-
-				StarvedBG = new FlxBackdrop(Paths.image('starved/stardustBg', 'exe'), 0.1, 0.1);
-				StarvedBG.velocity.set(100, 0);
-				StarvedBG.scale.set(6, 6);
-				StarvedBG.cameras = [camBars];
-				add(StarvedBG);
-				
-				StarvedGround = new FlxBackdrop(Paths.image('starved/stardustFloor', 'exe'), 0.1, 0.1);
-				StarvedGround.velocity.set(100, 0);
-				StarvedGround.scale.set(6, 6);
-				StarvedGround.cameras = [camBars];
-				add(StarvedGround);
-
 			case 'school': //Week 6 - Senpai, Roses
 				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
 				GameOverSubstate.loopSoundName = 'gameOver-pixel';
@@ -707,6 +549,23 @@ class PlayState extends MusicBeatState
 					bg.antialiasing = false;
 					add(bg);
 				}
+
+			case 'starved-pixel':
+				defaultCamZoom = 0.6;
+				isPixelStage = true;
+				showCountdown = false;
+
+				StarvedBG = new FlxBackdrop(Paths.image('starved/stardustBg', 'exe'), 0.1, 0.1);
+				StarvedBG.velocity.set(100, 0);
+				StarvedBG.scale.set(6, 6);
+				//StarvedBG.cameras = [camBars];
+				add(StarvedBG);
+				
+				StarvedGround = new FlxBackdrop(Paths.image('starved/stardustFloor', 'exe'), 0.1, 0.1);
+				StarvedGround.velocity.set(100, 0);
+				StarvedGround.scale.set(6, 6);
+				//StarvedGround.cameras = [camBars];
+				add(StarvedGround);
 		}
 
 		if(isPixelStage) {
