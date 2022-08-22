@@ -1178,6 +1178,9 @@ class PlayState extends MusicBeatState
 				default:
 					startCountdown();
 			}
+			seenCutscene = true;
+		} else {
+			startCountdown();
 		}
 		else 
 		{
@@ -1204,10 +1207,6 @@ class PlayState extends MusicBeatState
 					FlxTween.tween(blackFuck, {alpha: 0}, 1);
 				});
 			}
-			seenCutscene = true;
-		} else {
-			startCountdown();
-		}
 		RecalculateRating();
 
 		//PRECACHING MISS SOUNDS BECAUSE I THINK THEY CAN LAG PEOPLE AND FUCK THEM UP IDK HOW HAXE WORKS
