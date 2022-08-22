@@ -1181,7 +1181,6 @@ class PlayState extends MusicBeatState
 			seenCutscene = true;
 		} else {
 			startCountdown();
-		}
 	} else {
 		if (curSong == 'prey')
 		{
@@ -1206,7 +1205,6 @@ class PlayState extends MusicBeatState
 				FlxTween.tween(blackFuck, {alpha: 0}, 1.5);
 			});
 		}
-			
 		RecalculateRating();
 
 		//PRECACHING MISS SOUNDS BECAUSE I THINK THEY CAN LAG PEOPLE AND FUCK THEM UP IDK HOW HAXE WORKS
