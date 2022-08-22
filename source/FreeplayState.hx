@@ -77,7 +77,6 @@ class FreeplayState extends MusicBeatState
 				hideFreeplay: false,
 				difficulties: 'hard'
 			}));
-		}
 
 		for (i in 0...WeekData.weeksList.length) {
 			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
