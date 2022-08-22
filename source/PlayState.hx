@@ -1181,7 +1181,7 @@ class PlayState extends MusicBeatState
 			seenCutscene = true;
 		} else {
 			startCountdown();
-	} else {
+		
 		if (curSong == 'prey')
 		{
 			startCountdown();
