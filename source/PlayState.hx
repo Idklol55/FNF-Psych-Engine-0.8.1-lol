@@ -555,13 +555,13 @@ class PlayState extends MusicBeatState
 				isPixelStage = true;
 				showCountdown = false;
 
-				StarvedBG = new FlxBackdrop(Paths.image('starved/stardustBg', 'exe'), 0.1, 0.1);
+				StarvedBG = new FlxBackdrop(Paths.image('starved/stardustBg'), 0.1, 0.1);
 				StarvedBG.velocity.set(100, 0);
 				StarvedBG.scale.set(6, 6);
 				//StarvedBG.cameras = [camBars];
 				add(StarvedBG);
 				
-				StarvedGround = new FlxBackdrop(Paths.image('starved/stardustFloor', 'exe'), 0.1, 0.1);
+				StarvedGround = new FlxBackdrop(Paths.image('starved/stardustFloor'), 0.1, 0.1);
 				StarvedGround.velocity.set(100, 0);
 				StarvedGround.scale.set(6, 6);
 				//StarvedGround.cameras = [camBars];
