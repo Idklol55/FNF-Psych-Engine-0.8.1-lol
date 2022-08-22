@@ -63,6 +63,21 @@ class FreeplayState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
+			WeekData.weeksList.push("prey");
+			WeekData.weeksLoaded.set("prey", new WeekData({
+				songs: [["prey", "dad", [0, 0, 0]]],
+				weekCharacters: ['dad', 'bf', 'gf'],
+				weekBackground: 'stage',
+				weekBefore: 'tutorial',
+				storyName: 'prey',
+				weekName: 'prey',
+				freeplayColor: [0, 0, 0],
+				startUnlocked: true,
+				hideStoryMode: true,
+				hideFreeplay: false,
+				difficulties: 'hard'
+			}));
+		}
 
 		for (i in 0...WeekData.weeksList.length) {
 			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
