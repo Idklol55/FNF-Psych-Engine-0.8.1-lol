@@ -1183,30 +1183,29 @@ class PlayState extends MusicBeatState
 			startCountdown();
 		}
 	} else {
+		if (curSong == 'prey')
 		{
-			if (curSong == 'prey')
+			startCountdown();
+			add(blackFuck);
+			startCircle.loadGraphic(Paths.image('StartScreens/Circle-prey', 'exe'));
+			startCircle.x += 777;
+			add(startCircle);
+			startText.loadGraphic(Paths.image('StartScreens/Text-prey', 'exe'));
+			startText.x -= 1200;
+			add(startText);
+			new FlxTimer().start(0.6, function(tmr:FlxTimer)
 			{
-				startCountdown();
-				add(blackFuck);
-				startCircle.loadGraphic(Paths.image('StartScreens/Circle-prey', 'exe'));
-				startCircle.x += 777;
-				add(startCircle);
-				startText.loadGraphic(Paths.image('StartScreens/Text-prey', 'exe'));
-				startText.x -= 1200;
-				add(startText);
-				new FlxTimer().start(0.6, function(tmr:FlxTimer)
-				{
-					FlxTween.tween(startCircle, {x: 0}, 0.5);
-					FlxTween.tween(startText, {x: 0}, 0.5);
-				});
+				FlxTween.tween(startCircle, {x: 0}, 0.5);
+				FlxTween.tween(startText, {x: 0}, 0.5);
+			});
 
-				new FlxTimer().start(1.9, function(tmr:FlxTimer)
-				{
-					FlxTween.tween(startCircle, {alpha: 0}, 1);
-					FlxTween.tween(startText, {alpha: 0}, 1);
-					FlxTween.tween(blackFuck, {alpha: 0}, 1);
-				});
-			}
+			new FlxTimer().start(1.9, function(tmr:FlxTimer)
+			{
+				FlxTween.tween(startCircle, {alpha: 0}, 1);
+				FlxTween.tween(startText, {alpha: 0}, 1);
+				FlxTween.tween(blackFuck, {alpha: 0}, 1.5);
+			});
+		}
 			
 		RecalculateRating();
 
