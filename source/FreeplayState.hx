@@ -65,7 +65,7 @@ class FreeplayState extends MusicBeatState
 		#end
 			WeekData.weeksList.push("prey");
 			WeekData.weeksLoaded.set("prey", new WeekData({
-				songs: [["prey", "dad", [0, 0, 0]]],
+				songs: [["Prey", "dad", [0, 0, 0]]],
 				weekCharacters: ['dad', 'bf', 'gf'],
 				weekBackground: 'stage',
 				weekBefore: 'tutorial',
