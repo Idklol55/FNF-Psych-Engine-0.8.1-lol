@@ -1,8 +1,4 @@
 stage
-spooky
-philly
-limo
-mall
-mallEvil
+starved-pixel
 school
 schoolEvil
