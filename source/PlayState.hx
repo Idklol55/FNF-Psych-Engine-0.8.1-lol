@@ -553,8 +553,8 @@ class PlayState extends MusicBeatState
 				}
 
 			case 'starved-pixel':
-				defaultCamZoom = 0.6;
-				isPixelStage = true;
+				/*defaultCamZoom = 0.6;
+				isPixelStage = true;*/
 				showCountdown = false;
 
 				StarvedBG = new FlxBackdrop(Paths.image('starved/stardustBg', 'exe'), 0.1, 0.1);
